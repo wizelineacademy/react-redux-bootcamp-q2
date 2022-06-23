@@ -43,7 +43,7 @@ This repository contains the minimum structure of an E-commerce called **WizeSto
 1. Products
 1. Cart
 
-Here is the [link](https://redux-shopping-cart-gules.vercel.app/login) to the demo application.
+Here is the [link](https://redux-shopping-cart-gules.vercel.app/login) to the demo application. `username: wizeline` and `password: Rocks!`
 <img width="960" alt="WizeStore" src="https://user-images.githubusercontent.com/88999796/175117974-122bcd92-21a8-4b08-8eab-6f536c1cd7c0.png">
 
 </td>
