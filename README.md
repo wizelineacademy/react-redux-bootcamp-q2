@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://academy.wizeline.com/">
-    <img src="academylogo.png"
+    <img src="public/academylogo.png"
          alt="Academy" style="height: 18px; border-radius: 4px">
 </p>
 
