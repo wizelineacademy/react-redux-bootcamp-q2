@@ -60,6 +60,13 @@ Before starting:
 
 1. Fork this repository to your **GitHub** account and make it a public repository.
 1. Invite your mentor as a contributor to your **GitHub** project.
+1. Now that you have cloned this repository in your local environment, run the following command to install all modules that are listed on the `package.json` file and their dependencies:
+    
+    `npm install`
+
+    After that, run the app in the development mode:
+    
+    `npm start`
 1. You can message your mentor to have 1:1 sessions, or you can use the [**Slack channel**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM) if you feel stuck, want to share your progress, or need some feedback.
 1. Get started with the requirements specified below.
 
