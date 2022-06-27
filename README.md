@@ -119,7 +119,7 @@ In this assignment, you will create the **Products** module.
 #### Requirements of the first deliverable.
 
 1. Create a new branch with the name `feat/deliverable1` derived from `main` on your forked repository.
-1. Create the **Products** module and fill it with data obtained from this [mock file](http://public/data/products.json).
+1. Create the **Products** module and fill it with data obtained from this [mock file](public/data/products.json).
     Design your user interface (_UI_). You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/products), or if you want, implement any other design, but include the following elements:
 
     1. A grid of products, and for each element on the grid, show the following elements:
@@ -143,7 +143,7 @@ The following is the list of acceptance criteria (_AC_) and points for completin
 
 | **AC** | **Description** | **Points** |
 | :--- | :--- | ---: |
-| 1 | :ballot_box_with_check: Your **Products** module reads data products correctly from this [mock](http://public/data/products.json)[ file](http://public/data/products.json). | 30 |
+| 1 | :ballot_box_with_check: Your **Products** module reads data products correctly from this [mock file](public/data/products.json). | 30 |
 | 2 | :ballot_box_with_check: Your **Products** module displays your _CSS styles_ correctly. | 20 |
 | 3 | :ballot_box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One _image_ of the product.<br>&nbsp;&nbsp;• The product _name_.<br>&nbsp;&nbsp;• The first _category_.<br>&nbsp;&nbsp;• The product _price_.<br>&nbsp;&nbsp;• The "**Add to cart**" _button_ without functionality. | 50 |
 
@@ -158,7 +158,7 @@ In this assignment, you will create both the **Cart** and **Login** module.
 #### Requirements of the second deliverable
 
 1. Create a new branch with the name `feat/deliverable2` derived from `main` on your forked repository.
-1. Create the **Cart** module and fill it with data obtained from the same [mock file](http://public/data/products.json) used in the first delivery. Just take a few products and add the quantity of one to each.
+1. Create the **Cart** module and fill it with data obtained from the same [mock file](public/data/products.json) used in the first delivery. Just take a few products and add the quantity of one to each.
     Design your _UI_. You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/cart), or if you want, implement any other design, but include the following elements:
 
     1. A _heading_ with the text "**Shopping Cart"**.
@@ -182,7 +182,7 @@ In this assignment, you will create both the **Cart** and **Login** module.
     1. An _input_ field with a text _type_ for the username and its label "**Username**".
     1. An _input_ field with a password _type_ and its label "**Password**".
     1. A _button_ with the text "**Login".**
-1. On the **Login** module, authenticate your user using the **loginApi** function located on `src/utils/api.js`. If the users are not authenticated, redirect them to the **Login** module.
+1. On the **Login** module, authenticate your user using the [**loginApi**](src/utils/loginApi.js) function located on `src/utils/loginApi.js`. If the users are not authenticated, redirect them to the **Login** module.
 1. Deploy your app on [**Netlify**](https://www.netlify.com/), [**Firebase**](https://firebase.google.com/products-build), [**Heroku**](https://www.heroku.com/), [**GitHub Pages**](https://pages.github.com/), or any other hosting service you prefer.
 1. When you meet all _AC_ of this second deliverable, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeXxiqrN2BjLTVF79xI6OdCedGgaw_6pxWOrNEoxDkEaExEWA/viewform) and add the _URL_ of your _PR_ and the _URL_ of your deployment.
 
@@ -196,7 +196,7 @@ The following is the list of acceptance criteria (_AC_) and points for completin
 
 | **AC** | **Description** | **Points** |
 | :--- | :--- | ---: |
-| 1 | :ballot_box_with_check: Your **Cart** module reads products correctly from this [mock](http://public/data/products.json) file. | 10 |
+| 1 | :ballot_box_with_check: Your **Cart** module reads products correctly from this [mock file](public/data/products.json). | 10 |
 | 2 | :ballot_box_with_check: Your **Cart** module displays your _CSS styles_ correctly. | 10 |
 | 3 | :ballot_box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One _image_ of the product.<br>&nbsp;&nbsp;• The product _name_ and its _label_ "**Product details"**.<br>&nbsp;&nbsp;• The _quantity input_ and its label "**Quantity"**.<br>&nbsp;&nbsp;• The product _price_ and its _label_ "**Price"**.<br>&nbsp;&nbsp;• The _total_ amount and its _label_ "**Total"**.<br>&nbsp;&nbsp;• The "**Remove**" _button_ without functionality.| 15 |
 | 4 | :ballot_box_with_check: The "**Quantity"** _input_ only allows positive numbers and affects the _total_ cost of the product, the total _items_, and the _total cost_ in the "**Summary"** section. | 10 |
@@ -207,7 +207,7 @@ The following is the list of acceptance criteria (_AC_) and points for completin
 
 ### Third and last delivery
 
-In this final assignment, you will fetch the [**API**](https://62ace26a720b29256841ed36--cheery-quokka-c3476d.netlify.app/#/) and add [**Redux Toolkit**](https://redux-toolkit.js.org/introduction/getting-started) to manage the state of your application.
+In this final assignment, you will fetch the [**API**](https://wizeline-academy-react-redux-api.netlify.app/) and add [**Redux Toolkit**](https://redux-toolkit.js.org/introduction/getting-started) to manage the state of your application.
 
 
 Stay tuned on [**Slack**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM) because we will send you your **API key** on Friday, July 8th, 2022, so you will be allowed access to the [API](https://wizeline-academy-react-redux-api.netlify.app/).
@@ -221,10 +221,10 @@ Stay tuned on [**Slack**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM
 
 1. Create a new branch with the name `feat/deliverable3` derived from `main` on your forked repository.
 1. Add [**Redux Toolkit**](https://redux-toolkit.js.org/introduction/getting-started) to your project to simplify your _store_ setup, your _reducers_, and your _update logic_.
-1. On the **Products** module, instead of reading from the **mock file**, now use `createAsyncThunk` and your _API Key_ to fetch data _asynchronously_ from the `/products` endpoint of this [API](https://62ace26a720b29256841ed36--cheery-quokka-c3476d.netlify.app/#/).
+1. On the **Products** module, instead of reading from the **mock file**, now use `createAsyncThunk` and your _API Key_ to fetch data _asynchronously_ from the `/products` endpoint of this [API](https://wizeline-academy-react-redux-api.netlify.app/).
 1. Save products and quantities in the **Redux** _store_ when the user clicks on the "**Add to cart**" buttons in the **Products** module.
 1. Read those products and quantities from the **Redux** _store_ and allow updates and deletes when the user interacts with the "**Quantity"** _input_ and the "**Remove"** _button_ in the **Cart** module.
-1. Allow the user to click the "**Checkout**" button only if there are items in the cart, and when that happens, use `createAsyncThunk` and your _API Key_ to post an order using the `/orders` endpoint of this [API](https://62ace26a720b29256841ed36--cheery-quokka-c3476d.netlify.app/#/default/post_orders). Show the _API_ response, the error if something goes wrong, or the "**order**" and "**message"** if the post is successful.
+1. Allow the user to click the "**Checkout**" button only if there are items in the cart, and when that happens, use `createAsyncThunk` and your _API Key_ to post an order using the `/orders` endpoint of this [API](https://wizeline-academy-react-redux-api.netlify.app/). Show the _API_ response, the error if something goes wrong, or the "**order**" and "**message"** if the post is successful.
 1. Deploy your app on [**Netlify**](https://www.netlify.com/), [**Firebase**](https://firebase.google.com/products-build), [**Heroku**](https://www.heroku.com/), [**GitHub Pages**](https://pages.github.com/), or any other hosting service you prefer.
 1. When you meet all _AC_ of this third deliverable, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeXxiqrN2BjLTVF79xI6OdCedGgaw_6pxWOrNEoxDkEaExEWA/viewform) and add the _URL_ of your _PR_ and the _URL_ of your deployment.
 
@@ -238,7 +238,7 @@ The following is the list of acceptance criteria (_AC_) and points for completin
 
 | **AC** | **Description** | **Points** |
 | :--- | :---- | ---: |
-| 1 | :ballot_box_with_check: Your **Products** module fetches the [API](https://62ace26a720b29256841ed36--cheery-quokka-c3476d.netlify.app/#/) | 15 |
+| 1 | :ballot_box_with_check: Your **Products** module fetches the [API](https://wizeline-academy-react-redux-api.netlify.app/) | 15 |
 | 2 | :ballot_box_with_check: Your project uses **Redux Toolkit** for its global state management. | 25 |
 | 3 | :ballot_box_with_check: On the **Products** module, the **"Add to cart"** _buttons_ allow adding products to the **Cart** module. | 15 |
 | 4 | :ballot_box_with_check: On the **Cart** module, the "**Quantity"** _input_ updates the **Redux** _store_ and affects the totals of that product and the "**Summary**" totals. | 15 |
