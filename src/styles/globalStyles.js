@@ -4,6 +4,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --r400: #BF2600;
     --n10: #FAFBFC;
+    --n900: #091E42;
   }
 
   body {
