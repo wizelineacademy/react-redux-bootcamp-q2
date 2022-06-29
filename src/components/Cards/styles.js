@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledProductCard = styled.article`
-  max-width: 300px;
+  width: 300px;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 1px 1px 8px 3px var(--n40);
@@ -9,6 +9,8 @@ const StyledProductCard = styled.article`
 
 const StyledImage = styled.img`
   width: 100%;
+  height: 200px;
+  object-fit: scale-down;
 `;
 
 const StyledName = styled.p`
