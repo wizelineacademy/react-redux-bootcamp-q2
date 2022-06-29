@@ -31,6 +31,7 @@ const StyledCategory = styled.p`
 
 const StyledPrice = styled.p`
   text-align: right;
+  color: var(--n900);
 `;
 
 const StyledButtonsContainer = styled.div`
