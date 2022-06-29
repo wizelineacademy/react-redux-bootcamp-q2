@@ -5,7 +5,11 @@ const StyledProductCard = styled.article`
   border-radius: 8px;
   padding: 16px;
   box-shadow: 1px 1px 8px 3px var(--n40);
+  display: grid;
+  grid-template-rows: 1fr auto;
 `;
+
+const StyledDataContainer = styled.div``;
 
 const StyledImage = styled.img`
   width: 100%;
@@ -36,6 +40,7 @@ const StyledButtonsContainer = styled.div`
 
 export {
   StyledProductCard,
+  StyledDataContainer,
   StyledImage,
   StyledName,
   StyledCategory,

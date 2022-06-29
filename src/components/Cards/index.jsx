@@ -4,6 +4,7 @@ import { shortenName } from "../../utils/shortenName";
 
 import {
   StyledProductCard,
+  StyledDataContainer,
   StyledImage,
   StyledName,
   StyledCategory,
@@ -14,15 +15,17 @@ import {
 const ProductCard = ({ images = [], name, categories = [], price }) => {
   return (
     <StyledProductCard>
-      <StyledImage src={images[0]} />
-      <StyledName>{shortenName(name)}</StyledName>
-      <StyledCategory>{categories[0]}</StyledCategory>
-      <StyledPrice>
-        {new Intl.NumberFormat("en-EN", {
-          style: "currency",
-          currency: "USD",
-        }).format(price)}
-      </StyledPrice>
+      <StyledDataContainer>
+        <StyledImage src={images[0]} />
+        <StyledName>{shortenName(name)}</StyledName>
+        <StyledCategory>{categories[0]}</StyledCategory>
+        <StyledPrice>
+          {new Intl.NumberFormat("en-EN", {
+            style: "currency",
+            currency: "USD",
+          }).format(price)}
+        </StyledPrice>
+      </StyledDataContainer>
       <StyledButtonsContainer>
         <AddToCartButton />
       </StyledButtonsContainer>
