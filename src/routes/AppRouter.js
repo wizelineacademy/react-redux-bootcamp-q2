@@ -13,10 +13,10 @@ export const AppRouter = () => {
     <Router>
       <Header />
       <Switch>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
+        <Route exact path="/" component={Home} />
+        <Route path="/products" component={Products} />
+        <Route path="/cart" component={Cart} />
+        <Route path="/login" component={Login} />
       </Switch>
     </Router>
   );
