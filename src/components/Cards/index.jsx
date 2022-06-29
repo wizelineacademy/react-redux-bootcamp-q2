@@ -1,5 +1,6 @@
 import React from "react";
 import { AddToCartButton } from "../Buttons";
+import { shortenName } from "../../utils/shortenName";
 
 import {
   StyledProductCard,
@@ -14,7 +15,7 @@ const ProductCard = ({ images = [], name, categories = [], price }) => {
   return (
     <StyledProductCard>
       <StyledImage src={images[0]} />
-      <StyledName>{name}</StyledName>
+      <StyledName>{shortenName(name)}</StyledName>
       <StyledCategory>{categories[0]}</StyledCategory>
       <StyledPrice>
         {new Intl.NumberFormat("en-EN", {
