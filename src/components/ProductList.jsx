@@ -13,7 +13,7 @@ const ProductList = () => {
   })
 
   return (
-    <ProductsGrid>
+    <ProductsGrid data-testid="products-grid">
       {productsList}
     </ProductsGrid>
   )

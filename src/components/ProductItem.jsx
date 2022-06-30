@@ -7,14 +7,22 @@ const ProductItem = (props) =>{
   const { name, images, price, categories } = props
 
   return (
-    <Card>
+    <Card data-testid="product-card">
       <ImageContainer>
-        <Image src={(images && images[0]) || undefined} alt={ null }/>
+        <Image src={(images && images[0]) || undefined} alt={ null }
+           data-testid="product-image"
+        />
       </ImageContainer>
-        <Title>{name || "Not Available"}</Title>
-        <Paragraph $type="category">{(categories && categories[0]) || "Generic"}</Paragraph>
-        <Paragraph $type="price">${price || "Not Available"}</Paragraph>
-        <Button>Add to cart</Button>
+        <Title data-testid="product-name">{name || "Not Available"}</Title>
+        <Paragraph $type="category"
+          data-testid="product-category"
+          >{(categories && categories[0]) || "Generic"}</Paragraph>
+        <Paragraph $type="price"
+          data-testid="product-price"
+          >${price || "Not Available"}</Paragraph>
+        <Button
+          data-testid="product-btn-add_to_cart"
+          >Add to cart</Button>
     </Card>
   )
 }
