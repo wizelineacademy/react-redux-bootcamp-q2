@@ -2,17 +2,20 @@ import styled, { css } from 'styled-components';
 
 export const Card = styled.div `
   width: 100%;
-  max-width: 375px;
+  max-width: 320px;
   min-width: 150px;
-  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 10px;
-  padding: 10px;
-  background-color: #EEE;
-  border: 1px solid #AAA;
-  border-radius: 7px
+  padding: 20px;
+  background-color: rgb(34,37,41, 0.2);
+  border-radius: 10px;
+  transition: .5s;
+  
+  &:hover{
+    background-color: rgb(233,61,68, 0.3);
+    transform: scale(1.03);
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -35,13 +38,8 @@ export const Title =  styled.h3 `
 `;
 
 export const Paragraph = styled.p `
-
   ${(props) => {
     switch(props.$type) {
-      case "category":
-        return css`
-
-        `;
       case "price":
         return css`
           font-weight: bold;
@@ -50,6 +48,7 @@ export const Paragraph = styled.p `
         `;
       default:
         return css`
+        font-weight: normal;
         `;
     }
   }}
@@ -63,5 +62,11 @@ export const Button = styled.button `
   border-radius: 5px;
   background-color: #203349;
   color: #fff;
-  box-shadow: 0px 0px 5px 2px rgba(100,100,255,0.75);
+  border: 1px solid #203349;
+  transition: .5s;
+  
+  &:hover {
+    box-shadow: 0px 0px 3px 1px rgba(100,100,255,0.75);
+    transform: scale(1.05);
+  }
 `;

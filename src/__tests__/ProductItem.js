@@ -35,8 +35,8 @@ it("renders with the info that comes by props", () => {
   const image = screen.getByTestId("product-image")
 
   //Render the properly the info passed in props
-  expect(image.src).toContain("https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QS95B_QN95B_QN85B_Q80B_Q70B_Q-Symphony_PC_708xV.jpg?$feature-benefit-jpg")
-  expect(screen.getByTestId("product-name").textContent).toContain("85\" QN95B Samsung Neo QLED 4K Smart TV (2022)")
-  expect(screen.getByTestId("product-category").textContent).toContain("Television & video")
-  expect(screen.getByTestId("product-price").textContent).toContain("5999.99")
+  expect(image.src).toContain(mockProps.images[0])
+  expect(screen.getByTestId("product-name").textContent).toContain(mockProps.name)
+  expect(screen.getByTestId("product-category").textContent).toContain(mockProps.categories[0])
+  expect(screen.getByTestId("product-price").textContent).toContain(mockProps.price.toString())
 })

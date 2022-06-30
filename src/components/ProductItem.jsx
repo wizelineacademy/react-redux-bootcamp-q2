@@ -14,15 +14,18 @@ const ProductItem = (props) =>{
         />
       </ImageContainer>
         <Title data-testid="product-name">{name || "Not Available"}</Title>
-        <Paragraph $type="category"
+        <Paragraph
           data-testid="product-category"
-          >{(categories && categories[0]) || "Generic"}</Paragraph>
+          >{(categories && categories[0]) || "Generic"}
+        </Paragraph>
         <Paragraph $type="price"
           data-testid="product-price"
-          >${price || "Not Available"}</Paragraph>
+          >${price || "Not Available"}
+        </Paragraph>
         <Button
           data-testid="product-btn-add_to_cart"
-          >Add to cart</Button>
+          >Add to cart
+        </Button>
     </Card>
   )
 }
