@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export const Bar = styled.div`
   padding: 0px 16px;
-  background-color: #E4212D;
+  background-color: #e4212d;
   overflow: hidden;
   display: flex;
   flex-direction: row;
