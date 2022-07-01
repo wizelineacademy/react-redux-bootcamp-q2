@@ -20,7 +20,7 @@ export const Links = styled(Link)`
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
 `;
 
 export const Text = styled.p`
@@ -29,7 +29,7 @@ export const Text = styled.p`
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
 `;
 
 export const FlexContainer = styled.div`

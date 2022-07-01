@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card, ImageContainer, Image, Title, Paragraph, Button } 
+import { Card, CardInfo, Image, Title, Paragraph, CardButtons, Button } 
   from '../styles/components/ProductItem.styles.js';
 
 const ProductItem = (props) =>{
@@ -8,11 +8,10 @@ const ProductItem = (props) =>{
 
   return (
     <Card data-testid="product-card">
-      <ImageContainer>
+      <CardInfo>
         <Image src={(images && images[0]) || undefined} alt={ null }
            data-testid="product-image"
         />
-      </ImageContainer>
         <Title data-testid="product-name">{name || "Not Available"}</Title>
         <Paragraph
           data-testid="product-category"
@@ -22,10 +21,13 @@ const ProductItem = (props) =>{
           data-testid="product-price"
           >${price || "Not Available"}
         </Paragraph>
+      </CardInfo>
+      <CardButtons>
         <Button
           data-testid="product-btn-add_to_cart"
           >Add to cart
         </Button>
+      </CardButtons>
     </Card>
   )
 }
