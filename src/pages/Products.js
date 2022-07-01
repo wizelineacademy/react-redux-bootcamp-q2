@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Main, ProductsContainer } from '../styles/pages/Products.styles';
+import { data } from '../utils/mockData';
+import { ProductCard } from '../components/ProductCard';
 
 export const Products = () => {
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    setProducts(data.data.products.items)
+  }, [])
+
+  console.log('data', data)
+  console.log('ptods', products)
   return (
-    <div>Products</div>
+    <Main>
+      <ProductsContainer>
+        {products.map((productObj, i) => (
+          <ProductCard key={i} productObj={productObj}/>
+        ))}
+      </ProductsContainer>
+    </Main>
   )
 }
