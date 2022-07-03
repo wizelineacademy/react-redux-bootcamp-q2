@@ -1,4 +1,4 @@
-import { Item } from "src/models/Products";
+import { Item } from "../../models/Products";
 
 export interface ProductProps {
   product: Item;

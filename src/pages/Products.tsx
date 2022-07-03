@@ -1,6 +1,6 @@
-import { Grid } from "../components/Grid/Grid";
+import { ProductsGrid } from "../components/Product/ProductsGrid";
 import React from "react";
 
 export const Products = () => {
-  return <Grid />;
+  return <ProductsGrid />;
 };

@@ -1,21 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "strict": true,
-    "sourceMap": true,
-    "noEmit": true,
-    "jsx": "react",
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "components/*": ["src/components/*"],
-    },
+    "module": "commonjs",
+    "target": "es2016",
+    "jsx": "preserve",
     "resolveJsonModule": true,
+    "esModuleInterop": true
   },
-  "include": ["src"],
+  "exclude": ["node_modules", "**/node_modules/*"]
 }
