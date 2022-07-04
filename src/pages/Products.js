@@ -11,8 +11,6 @@ export const Products = () => {
     setProducts(data.data.products.items)
   }, [])
 
-  console.log('data', data)
-  console.log('ptods', products)
   return (
     <Main>
       <ProductsContainer>

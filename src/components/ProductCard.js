@@ -1,11 +1,22 @@
-import { Main } from '../styles/components/ProductCard.styles';
+import { Main, ProductImg, InnerContainer, NameText, AddToCartBtn, InnerTop, InnerBottom, CatText, PriceText } from '../styles/components/ProductCard.styles';
 
 export const ProductCard = ({productObj}) => {
-  console.log('pord-obj', productObj)
+  const shortName = productObj.name.length> 38 ? `${productObj.name.slice(0,38)}...` : productObj.name;
   return (
     <Main>
-      <img style={{objectFit: 'contain'}} src={productObj.images[0]} width="100" height="100" />
-      <p>{productObj.name}</p>
+      <InnerContainer>
+        <InnerTop>
+          <ProductImg src={productObj.images[0]} />
+          <NameText>{shortName}</NameText>
+        </InnerTop>
+        <InnerBottom>
+          <CatText>{productObj.categories[0]}</CatText>
+          <PriceText>${productObj.price}</PriceText>
+          <AddToCartBtn>
+            Add to cart
+          </AddToCartBtn>
+        </InnerBottom>
+      </InnerContainer>
     </Main>
   )
 }
