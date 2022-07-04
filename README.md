@@ -61,12 +61,13 @@ Before starting:
 1. Fork this repository to your **GitHub** account and make it a public repository.
 1. Invite your mentor as a contributor to your **GitHub** project.
 1. Now that you have cloned this repository in your local environment, run the following command to install all modules that are listed on the `package.json` file and their dependencies:
-    
-    `npm install`
 
-    After that, run the app in the development mode:
-    
-    `npm start`
+   `npm install`
+
+   After that, run the app in the development mode:
+
+   `npm start`
+
 1. You can message your mentor to have 1:1 sessions, or you can use the [**Slack channel**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM) if you feel stuck, want to share your progress, or need some feedback.
 1. Get started with the requirements specified below.
 
@@ -120,19 +121,19 @@ In this assignment, you will create the **Products** module.
 
 1. Create a new branch with the name `feat/deliverable1` derived from `main` on your forked repository.
 1. Create the **Products** module and fill it with data obtained from this [mock file](public/data/products.json).
-    Design your user interface (_UI_). You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/products), or if you want, implement any other design, but include the following elements:
+   Design your user interface (_UI_). You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/products), or if you want, implement any other design, but include the following elements:
 
-    1. A grid of products, and for each element on the grid, show the following elements:
+   1. A grid of products, and for each element on the grid, show the following elements:
 
-        - [x] One _image_ of the product.
-        - [x] The product _name_.
-        - [x] The first _category_.
-        - [x] The product _price_.
-        - [x] A _button_ without functionality with the text "**Add to cart"**.
+      - [x] One _image_ of the product.
+      - [x] The product _name_.
+      - [x] The first _category_.
+      - [x] The product _price_.
+      - [x] A _button_ without functionality with the text "**Add to cart"**.
 
 1. Deploy your app on [**Netlify**](https://www.netlify.com/), [**Firebase**](https://firebase.google.com/products-build), [**Heroku**](https://www.heroku.com/), [**GitHub Pages**](https://pages.github.com/), or any other hosting service you prefer.
 1. When you meet all _Acceptance Criteria_ of this first deliverable, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeXxiqrN2BjLTVF79xI6OdCedGgaw_6pxWOrNEoxDkEaExEWA/viewform) and add the _URL_ of your _PR_ and the _URL_ of your deployment.
-    
+
 </td>
 </tr>
 </table>
@@ -141,11 +142,11 @@ In this assignment, you will create the **Products** module.
 
 The following is the list of acceptance criteria (_AC_) and points for completing your first deliverable:
 
-| **AC** | **Description** | **Points** |
-| :--- | :--- | ---: |
-| 1 | :ballot_box_with_check: Your **Products** module reads data products correctly from this [mock file](public/data/products.json). | 30 |
-| 2 | :ballot_box_with_check: Your **Products** module displays your _CSS styles_ correctly. | 20 |
-| 3 | :ballot_box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One _image_ of the product.<br>&nbsp;&nbsp;• The product _name_.<br>&nbsp;&nbsp;• The first _category_.<br>&nbsp;&nbsp;• The product _price_.<br>&nbsp;&nbsp;• The "**Add to cart**" _button_ without functionality. | 50 |
+| **AC** | **Description**                                                                                                                                                                                                                                                                                                           | **Points** |
+| :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------: |
+| 1      | :ballot_box_with_check: Your **Products** module reads data products correctly from this [mock file](public/data/products.json).                                                                                                                                                                                          |         30 |
+| 2      | :ballot*box_with_check: Your **Products** module displays your \_CSS styles* correctly.                                                                                                                                                                                                                                   |         20 |
+| 3      | :ballot*box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One \_image* of the product.<br>&nbsp;&nbsp;• The product _name_.<br>&nbsp;&nbsp;• The first _category_.<br>&nbsp;&nbsp;• The product _price_.<br>&nbsp;&nbsp;• The "**Add to cart**" _button_ without functionality. |         50 |
 
 ### Second delivery
 
@@ -159,29 +160,30 @@ In this assignment, you will create both the **Cart** and **Login** module.
 
 1. Create a new branch with the name `feat/deliverable2` derived from `main` on your forked repository.
 1. Create the **Cart** module and fill it with data obtained from the same [mock file](public/data/products.json) used in the first delivery. Just take a few products and add the quantity of one to each.
-    Design your _UI_. You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/cart), or if you want, implement any other design, but include the following elements:
+   Design your _UI_. You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/cart), or if you want, implement any other design, but include the following elements:
 
-    1. A _heading_ with the text "**Shopping Cart"**.
-    1. A grid with the products of the cart, and for each product on the grid, show the following elements:
+   1. A _heading_ with the text "**Shopping Cart"**.
+   1. A grid with the products of the cart, and for each product on the grid, show the following elements:
 
-        - [x] A _label_ with the text "**Product details"**.
-        - [x] At least one _image_ of the product.
-        - [x] The product _name_.
-        - [x] An _input_ field with a numeric _type_ for the _quantity_ of the product and its label "**Quantity"**.
-        - [x] The product _price_ and its label "**Price"**.
-        - [x] The _total_ by multiplying the _quantity_ by the product _price._ And its label "**Total"**.
-        - [x] A _button_ without functionality with the text "**Remove"**.
-    1. The summary section with the following elements:
-        - [x] A _heading_ with the text "**Summary"**.
-        - [x] The _total items_ in the cart and its label "**Items**".
-        - [x] The _total cost_ of the items in the cart and its label "**Total cost**".
-        - [x] A _button_ without functionality with the text "**Checkout"**.
+      - [x] A _label_ with the text "**Product details"**.
+      - [x] At least one _image_ of the product.
+      - [x] The product _name_.
+      - [x] An _input_ field with a numeric _type_ for the _quantity_ of the product and its label "**Quantity"**.
+      - [x] The product _price_ and its label "**Price"**.
+      - [x] The _total_ by multiplying the _quantity_ by the product _price._ And its label "**Total"**.
+      - [x] A _button_ without functionality with the text "**Remove"**.
+
+   1. The summary section with the following elements:
+      - [x] A _heading_ with the text "**Summary"**.
+      - [x] The _total items_ in the cart and its label "**Items**".
+      - [x] The _total cost_ of the items in the cart and its label "**Total cost**".
+      - [x] A _button_ without functionality with the text "**Checkout"**.
 
 1. Create the **Login** module and design your _UI_. You can base it on the layout proposed in this [demo](https://redux-shopping-cart-gules.vercel.app/login), or if you want, implement any other design, but include the following elements:
-    1. A _heading_ with the text "**Welcome to the WizeStore!**".
-    1. An _input_ field with a text _type_ for the username and its label "**Username**".
-    1. An _input_ field with a password _type_ and its label "**Password**".
-    1. A _button_ with the text "**Login".**
+   1. A _heading_ with the text "**Welcome to the WizeStore!**".
+   1. An _input_ field with a text _type_ for the username and its label "**Username**".
+   1. An _input_ field with a password _type_ and its label "**Password**".
+   1. A _button_ with the text "**Login".**
 1. On the **Login** module, authenticate your user using the [**loginApi**](src/utils/loginApi.js) function located on `src/utils/loginApi.js`. If the users are not authenticated, redirect them to the **Login** module.
 1. Deploy your app on [**Netlify**](https://www.netlify.com/), [**Firebase**](https://firebase.google.com/products-build), [**Heroku**](https://www.heroku.com/), [**GitHub Pages**](https://pages.github.com/), or any other hosting service you prefer.
 1. When you meet all _AC_ of this second deliverable, fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLSeXxiqrN2BjLTVF79xI6OdCedGgaw_6pxWOrNEoxDkEaExEWA/viewform) and add the _URL_ of your _PR_ and the _URL_ of your deployment.
@@ -194,24 +196,22 @@ In this assignment, you will create both the **Cart** and **Login** module.
 
 The following is the list of acceptance criteria (_AC_) and points for completing your second deliverable:
 
-| **AC** | **Description** | **Points** |
-| :--- | :--- | ---: |
-| 1 | :ballot_box_with_check: Your **Cart** module reads products correctly from this [mock file](public/data/products.json). | 10 |
-| 2 | :ballot_box_with_check: Your **Cart** module displays your _CSS styles_ correctly. | 10 |
-| 3 | :ballot_box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One _image_ of the product.<br>&nbsp;&nbsp;• The product _name_ and its _label_ "**Product details"**.<br>&nbsp;&nbsp;• The _quantity input_ and its label "**Quantity"**.<br>&nbsp;&nbsp;• The product _price_ and its _label_ "**Price"**.<br>&nbsp;&nbsp;• The _total_ amount and its _label_ "**Total"**.<br>&nbsp;&nbsp;• The "**Remove**" _button_ without functionality.| 15 |
-| 4 | :ballot_box_with_check: The "**Quantity"** _input_ only allows positive numbers and affects the _total_ cost of the product, the total _items_, and the _total cost_ in the "**Summary"** section. | 10 |
-| 5 | :ballot_box_with_check: For the "**Summary"** section, the following elements render correctly:<br>&nbsp;&nbsp;• The _heading_ with the text "**Summary".**<br>&nbsp;&nbsp;• The _total items_ in the cart and its label "**Items"**.<br>&nbsp;&nbsp;• The _total cost_ of the items in the cart and its label "**Total cost"**.<br>&nbsp;&nbsp;• The "**Checkout"** _button_ without functionality. | 15 |
-| 6 | :ballot_box_with_check: Your **Login** module displays your _CSS styles_ correctly. | 10 |
-| 7 | :ballot_box_with_check: Your **Login** module render correctly the following elements:<br>&nbsp;&nbsp;• The _heading_ with the text "**Welcome to the WizeStore!**".<br>&nbsp;&nbsp;• The _username input_ and its label "**Username**".<br>&nbsp;&nbsp;• The _user password input_ and its label "**Password**".<br>&nbsp;&nbsp;• The "**Login"** _button_. | 15 |
-| 8 | :ballot_box_with_check: Your **Products** and **Cart** modules redirect to the **Login** module if the user is not authenticated. | 15 |
+| **AC** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | **Points** |
+| :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------: |
+| 1      | :ballot_box_with_check: Your **Cart** module reads products correctly from this [mock file](public/data/products.json).                                                                                                                                                                                                                                                                                                                                                              |         10 |
+| 2      | :ballot*box_with_check: Your **Cart** module displays your \_CSS styles* correctly.                                                                                                                                                                                                                                                                                                                                                                                                  |         10 |
+| 3      | :ballot*box_with_check: For each product, the following elements render correctly:<br>&nbsp;&nbsp;• One \_image* of the product.<br>&nbsp;&nbsp;• The product _name_ and its _label_ "**Product details"**.<br>&nbsp;&nbsp;• The _quantity input_ and its label "**Quantity"**.<br>&nbsp;&nbsp;• The product _price_ and its _label_ "**Price"**.<br>&nbsp;&nbsp;• The _total_ amount and its _label_ "**Total"**.<br>&nbsp;&nbsp;• The "**Remove**" _button_ without functionality. |         15 |
+| 4      | :ballot*box_with_check: The "**Quantity"** \_input* only allows positive numbers and affects the _total_ cost of the product, the total _items_, and the _total cost_ in the "**Summary"** section.                                                                                                                                                                                                                                                                                  |         10 |
+| 5      | :ballot*box_with_check: For the "**Summary"** section, the following elements render correctly:<br>&nbsp;&nbsp;• The \_heading* with the text "**Summary".**<br>&nbsp;&nbsp;• The _total items_ in the cart and its label "**Items"**.<br>&nbsp;&nbsp;• The _total cost_ of the items in the cart and its label "**Total cost"**.<br>&nbsp;&nbsp;• The "**Checkout"** _button_ without functionality.                                                                                |         15 |
+| 6      | :ballot*box_with_check: Your **Login** module displays your \_CSS styles* correctly.                                                                                                                                                                                                                                                                                                                                                                                                 |         10 |
+| 7      | :ballot*box_with_check: Your **Login** module render correctly the following elements:<br>&nbsp;&nbsp;• The \_heading* with the text "**Welcome to the WizeStore!**".<br>&nbsp;&nbsp;• The _username input_ and its label "**Username**".<br>&nbsp;&nbsp;• The _user password input_ and its label "**Password**".<br>&nbsp;&nbsp;• The "**Login"** _button_.                                                                                                                        |         15 |
+| 8      | :ballot_box_with_check: Your **Products** and **Cart** modules redirect to the **Login** module if the user is not authenticated.                                                                                                                                                                                                                                                                                                                                                    |         15 |
 
 ### Third and last delivery
 
 In this final assignment, you will fetch the [**API**](https://wizeline-academy-react-redux-api.netlify.app/) and add [**Redux Toolkit**](https://redux-toolkit.js.org/introduction/getting-started) to manage the state of your application.
 
-
 Stay tuned on [**Slack**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM) because we will send you your **API key** on Friday, July 8th, 2022, so you will be allowed access to the [API](https://wizeline-academy-react-redux-api.netlify.app/).
-
 
 <table>
 <tr>
@@ -236,22 +236,22 @@ Stay tuned on [**Slack**](https://wizelineacademy.slack.com/archives/C03KCQ0CPDM
 
 The following is the list of acceptance criteria (_AC_) and points for completing your third deliverable:
 
-| **AC** | **Description** | **Points** |
-| :--- | :---- | ---: |
-| 1 | :ballot_box_with_check: Your **Products** module fetches the [API](https://wizeline-academy-react-redux-api.netlify.app/) | 15 |
-| 2 | :ballot_box_with_check: Your project uses **Redux Toolkit** for its global state management. | 25 |
-| 3 | :ballot_box_with_check: On the **Products** module, the **"Add to cart"** _buttons_ allow adding products to the **Cart** module. | 15 |
-| 4 | :ballot_box_with_check: On the **Cart** module, the "**Quantity"** _input_ updates the **Redux** _store_ and affects the totals of that product and the "**Summary**" totals. | 15 |
-| 5 | :ballot_box_with_check: On the **Cart** module, the "**Remove"** _buttons_ allow removing products from the **Cart** module and affect the "**Summary"** totals. | 15 |
-| 6 | :ballot_box_with_check: On the **Cart** module, the "**Checkout"** _button_ displays the _API_ response on another page if there are items in the cart. | 15 |
+| **AC** | **Description**                                                                                                                                                                | **Points** |
+| :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------: |
+| 1      | :ballot_box_with_check: Your **Products** module fetches the [API](https://wizeline-academy-react-redux-api.netlify.app/)                                                      |         15 |
+| 2      | :ballot_box_with_check: Your project uses **Redux Toolkit** for its global state management.                                                                                   |         25 |
+| 3      | :ballot*box_with_check: On the **Products** module, the **"Add to cart"** \_buttons* allow adding products to the **Cart** module.                                             |         15 |
+| 4      | :ballot*box_with_check: On the **Cart** module, the "**Quantity"** \_input* updates the **Redux** _store_ and affects the totals of that product and the "**Summary**" totals. |         15 |
+| 5      | :ballot*box_with_check: On the **Cart** module, the "**Remove"** \_buttons* allow removing products from the **Cart** module and affect the "**Summary"** totals.              |         15 |
+| 6      | :ballot*box_with_check: On the **Cart** module, the "**Checkout"** \_button* displays the _API_ response on another page if there are items in the cart.                       |         15 |
 
 ### Bonus
 
 The bonus is a plus that helps us know you better and increments your final score. Consider the following:
 
-| **Bonus** | **Description** | **Points** |
-| :--- | :--- | ---: |
-| 1 | :ballot_box_with_check: Use _unit testing_ to validate your components using [**Jest**](https://jestjs.io/docs/getting-started), [**React Testing Library**](https://testing-library.com/docs/), and/or [**Mock Service Worker**](https://mswjs.io/). | 10 |
-| 2 | :ballot_box_with_check: Utilize third-party authentication providers for your **Login** module like [**Auth0**](https://auth0.com/docs/). | 10 |
-| 3 | :ballot_box_with_check: Add a _search bar_ functionality to the **Products** module. | 10 |
-| 4 | :ballot_box_with_check: Add products to the **Favorites** module. | 10 |
+| **Bonus** | **Description**                                                                                                                                                                                                                                        | **Points** |
+| :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------: |
+| 1         | :ballot*box_with_check: Use \_unit testing* to validate your components using [**Jest**](https://jestjs.io/docs/getting-started), [**React Testing Library**](https://testing-library.com/docs/), and/or [**Mock Service Worker**](https://mswjs.io/). |         10 |
+| 2         | :ballot_box_with_check: Utilize third-party authentication providers for your **Login** module like [**Auth0**](https://auth0.com/docs/).                                                                                                              |         10 |
+| 3         | :ballot*box_with_check: Add a \_search bar* functionality to the **Products** module.                                                                                                                                                                  |         10 |
+| 4         | :ballot_box_with_check: Add products to the **Favorites** module.                                                                                                                                                                                      |         10 |
