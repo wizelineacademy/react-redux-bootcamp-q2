@@ -1,29 +1,26 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {Products} from '../pages/Products';
-import {Cart} from '../pages/Cart';
-import {Home} from '../pages/Home';
-import {Header} from '../components/Header';
-import { Login } from '../pages/Login';
+import {
+  Routes,
+  Route,
+  BrowserRouter
+} from "react-router-dom";
+
+import { Products } from '../pages/Products/index';
+import { Header } from '../components/Header/index';
+import { Login } from '../pages/Login/index';
+import { Home } from '../pages/Home/index';
+import { Cart } from '../pages/Cart/index';
 
 export const AppRouter = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/products'>
-          <Products />
-        </Route>
-        <Route path='/cart'>
-          <Cart />
-        </Route>
-        <Route path='/login'>
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
