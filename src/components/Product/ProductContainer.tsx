@@ -19,13 +19,11 @@ export const ProductContainer: React.FC<ProductProps> = (
 
   return (
     <Paper elevation={6} key={product.id}>
-      <Product product={product} />
+      <div className="product-grid-container">
+        <Product product={product} />
+      </div>
       <div className="add-to-cart-button-container">
-        <Button
-          className="add-to-cart-button"
-          label="Add to Cart"
-          onClick={addToCart}
-        />
+        <Button label="Add to Cart" onClick={addToCart} />
       </div>
     </Paper>
   );

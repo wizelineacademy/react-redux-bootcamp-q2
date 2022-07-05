@@ -1,10 +1,8 @@
 .product-container {
-  padding: 15px;
-  height: 300px;
-}
-
-.product-container div {
-  margin-bottom: 15px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-name {
@@ -13,9 +11,8 @@
   text-overflow: ellipsis;
   white-space: initial;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  min-height: 65px;
 }
 
 .product-price {
@@ -24,15 +21,14 @@
 }
 
 .product-image-container {
+  max-height: 110px;
   display: flex;
   justify-content: center;
 }
 
 .product-image {
-  max-width: 200px;
-  max-height: 150px;
-  min-height: 100px;
-  min-width: 150px;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .product-category {
@@ -42,12 +38,14 @@
 
 .add-to-cart-button-container {
   display: flex;
-  justify-content: flex-end;
-  padding: 0px 10px 10px 10px;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
-.add-to-cart-button {
-  width: 100%;
+.add-to-cart-button-container .MuiButton-root {
+  padding: 5px;
+  width: 90%;
 }
 
 .product-grid-container {
