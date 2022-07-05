@@ -7,14 +7,14 @@ import {
 
 export const Header = () => {
   return (
-    <Bar className="topnav" id="myTopnav">
+    <Bar className="topnav" id="myTopnav" data-testid="bar">
       <Links to="/">
         Wizestore
       </Links>
       <FlexContainer>
-              <Links to="/cart">Cart</Links>
-              <Links to="/products">Products</Links>
-            <Links to="/login">Login</Links>
+        <Links to="/products">Products</Links>
+        <Links to="/cart">Cart</Links>
+        <Links to="/login">Login</Links>
       </FlexContainer>
     </Bar>
   );
