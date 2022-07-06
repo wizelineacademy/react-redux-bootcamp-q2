@@ -12,7 +12,8 @@
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QN85B_Q80B_100_Color_Volume_with_Quantum_Dot_PC_708xV.jpg?$feature-benefit-jpg",
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QLED_Features_EyeComfort_Mode_4K_PC_708xV.jpg?$feature-benefit-jpg"
           ],
-          "categories": ["Television & video"]
+          "categories": ["Television & video"],
+          "quantity": 2
         },
         {
           "id": 2,
@@ -24,7 +25,8 @@
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QN85B_Q80B_100_Color_Volume_with_Quantum_Dot_PC_708xV.jpg?$feature-benefit-jpg",
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QLED_Features_EyeComfort_Mode_4K_PC_708xV.jpg?$feature-benefit-jpg"
           ],
-          "categories": ["Television & video"]
+          "categories": ["Television & video"],
+          "quantity": 4
         },
         {
           "id": 3,
@@ -37,7 +39,8 @@
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/04_SDSAC-3862-04-Qn90B-PDP-GALLERY-TV-1600x1200.jpg?$product-details-jpg",
             "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/05_QN90B_Lifestyle_03_Approved.jpg?$product-details-jpg"
           ],
-          "categories": ["Television & video"]
+          "categories": ["Television & video"],
+          "quantity": 1
         },
         {
           "id": 4,
@@ -49,7 +52,8 @@
             "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/frame-tv/pdp/020620/gallery/01-PDP-GALLERY-Frame-product-QN75LS03TAFXZA-Front-black-1600x1200.jpg?$product-details-jpg",
             "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/frame-tv/pdp/020620/gallery/04-PDP-GALLERY-Frame-product-QN75LS03TAFXZA-R-Side-black-1600x1200.jpg?$product-details-jpg"
           ],
-          "categories": ["Television & video"]
+          "categories": ["Television & video"],
+          "quantity": 6
         }
       ]
     }

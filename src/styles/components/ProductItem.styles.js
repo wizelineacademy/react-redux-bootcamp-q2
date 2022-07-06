@@ -16,7 +16,6 @@ export const Card = styled.div `
   height: 350px;
   background-image: linear-gradient(rgb(10,10,10, 0.1) 45%, rgb(10,10,10, 0.3) 75%, rgb(10,10,10, 0.8) 100%);
   border-radius: 10px;
-  // border: 1px solid ${colors.mainInteractiveColor};
   transition: .1s;
   
   &:hover{
