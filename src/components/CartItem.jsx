@@ -11,29 +11,30 @@ const CartItem = (props) => {
   const {id, name, images, price, quantity} = props
 
   return (
-    <Card data-testid="product-card">
-      <Image src={(images && images[0]) || undefined} alt={ null }
-        data-testid="product-image"
+    <Card data-testid="cart-card">
+      <Image src={(images && images[0]) || undefined} 
+        alt={ name || "Not Available" }
+        data-testid="cart-image"
         />
       <CardInfo>
-        <Title data-testid="product-name">{name || "Not Available"}</Title>
+        <Title data-testid="cart-item-name">{name || "Not Available"}</Title>
         <CardButtons>
           <Button
-            data-testid="product-btn-add_to_cart"
+            data-testid="cart-btn-remove-item"
             ><FontAwesomeIcon icon={faTrash} />
           </Button>
           <Paragraph $type="price"
-            data-testid="product-price"
+            data-testid="cart-product-price"
             >${quantity * price || 0}
           </Paragraph>
           <QuantityButtons>
             <Button
-              data-testid="product-btn-add_to_cart"
+              data-testid="cart-btn-rest-1-item"
               ><FontAwesomeIcon icon={faMinus} />
             </Button>
             <Paragraph>{quantity || 0}</Paragraph>
             <Button
-              data-testid="product-btn-add_to_cart"
+              data-testid="cart-btn-add-1-item"
               ><FontAwesomeIcon icon={faPlus} />
             </Button>
           </QuantityButtons>
