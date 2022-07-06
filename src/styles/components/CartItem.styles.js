@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const colors = {
   mainColor: "rgb(0,0,0, 0.9)",
   secondaryColor: "rgb(255,255,255)",
+  tertiaryColor: "rgb(100,255,0)",
   mainInteractiveColor: "rgb(228,33,45)",
   mainShadowColor: "rgb(0, 30, 108)",
   secondaryShadowColor: "rgb(255,255,255)"
@@ -15,10 +16,10 @@ export const Card = styled.div `
   max-width: 1024px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(rgb(10,10,10, 0.1) 45%, rgb(10,10,10, 0.3) 75%, rgb(10,10,10, 0.8) 100%);
-  border-radius: 10px;
-  padding: 10px;
+  background-image: linear-gradient(rgb(10,10,10, 0.05) 5%, rgb(10,10,10, 0.1) 85%, rgb(10,10,10, 0.05) 100%);
+  padding: 20px 10px;
   gap: 10px;
+  border-bottom: 1px solid black;
 
   @media only screen and (min-width: 420px) {
     flex-direction: row;
@@ -59,15 +60,15 @@ export const QuantityButtons = styled.div`
 
 export const Image = styled.img`
   display: block;
-  max-width: 100%;
   height: 150px;
-  object-fit: cover;
+  object-fit: contain;
   margin: 0 auto;
   border-radius: 5px;
   padding: 5px;
   background-color: rgb(255,255,255, 0.9);
 
   @media only screen and (min-width: 420px) {
+    max-width: 100px;
     height: 100px;
   }
 `;
@@ -82,24 +83,22 @@ export const Title =  styled.h3 `
 `;
 
 export const Paragraph = styled.p `
-  color: ${colors.mainFontColor};
   font-size: 1rem;
-  color: ${colors.secondaryColor};
-  // padding: 0 5px;
-
+  letter-spacing: .1rem;
+  font-weight: normal;
+  
   ${(props) => {
     switch(props.$type) {
       case "price":
         return css`
-          font-weight: bold;
-          letter-spacing: .05rem;
+        color: ${colors.tertiaryColor};
         `;
-      default:
-        return css`
-          font-weight: normal;
-        `;
-    }
-  }}
+        default:
+          return css`
+            color: ${colors.secondaryColor};
+          `;
+      }
+    }}
 `;
 
 

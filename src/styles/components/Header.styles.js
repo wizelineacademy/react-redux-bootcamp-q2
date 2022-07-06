@@ -9,6 +9,9 @@ export const Bar = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+
   @media only screen and (max-width: 600px) {
     flex-direction: column;
   }

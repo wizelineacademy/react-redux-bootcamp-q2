@@ -1,9 +1,8 @@
 import React from 'react'
-import CartItem from '../components/CartItem'
-import CartSummary from '../components/CartSummary'
+import CartList from '../components/CartList'
 
 export const Cart = () => {
   return (
-    <CartSummary/>
+    <CartList/>
   )
 }
