@@ -15,6 +15,7 @@ export const Summary = styled.div`
   gap: 10px;
   padding: 10px;
   position: sticky;
+  border-bottom: 1px solid black;
 
   @media only screen and (min-width: 420px) {
     position: relative;
