@@ -3,9 +3,7 @@ import ProductList from '../components/ProductList.jsx'
 
 export const Products = () => {
   return (
-    <>
-      <ProductList />
-    </>
+    <ProductList />
   )
 }
 

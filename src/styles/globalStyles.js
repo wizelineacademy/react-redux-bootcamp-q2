@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     background: white;
     font-family: Open-Sans, Helvetica, Sans-Serif;
+    max-width: 100%;
   }
 `
  
