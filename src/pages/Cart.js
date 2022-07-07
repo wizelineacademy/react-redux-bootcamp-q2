@@ -3,7 +3,7 @@ import CartList from '../components/CartList'
 import CartSummary from '../components/CartSummary'
 
 import { getViewSize } from '../styles/globalStyles.js'
-import { CartContainer, CartDetails, Title } 
+import { CartContainer, CartDetails, Title, EmptyCart } 
   from '../styles/pages/Cart.styles.js';
 
 import CartItems from '../utils/CartItems.json';
@@ -38,15 +38,23 @@ export const Cart = () => {
     };
   }, [windowSize]);  
   
-  return (
-    <CartContainer>
-      <Title ref={titleRef} $top={offsetTop}>Shopping cart</Title>
-      <CartDetails>
-        <CartSummary {...itemsTotals}/>
-        <CartList cartItems={cartItems}/>
-      </CartDetails>
-    </CartContainer>
-  )
+  if (cartItems.length > 0) {
+    return (
+      <CartContainer>
+        <Title ref={titleRef} $top={offsetTop}>Shopping cart</Title>
+        <CartDetails>
+          <CartSummary {...itemsTotals}/>
+          <CartList cartItems={cartItems}/>
+        </CartDetails>
+      </CartContainer>
+    )
+  } else {
+    return(
+      <EmptyCart>
+        There's no items in your cart :(
+      </EmptyCart>
+    )
+  }
 }
 
 function getOffsetTop(ref) {

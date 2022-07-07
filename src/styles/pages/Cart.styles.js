@@ -1,9 +1,5 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import { viewSizes } from '../globalStyles.js'
-
-const gridTemplateValues = {
-
-}
 
 export const CartContainer = styled.div`
   position: relative;
@@ -17,6 +13,14 @@ export const CartDetails = styled.div`
   @media only screen and (min-width: ${viewSizes.mobile}px) {
     flex-direction: row-reverse;
   }
+`;
+
+export const EmptyCart = styled.h2`
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 `;
 
 export const Title = styled.h3`
