@@ -1,5 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
  
+export const viewSizes = Object.freeze({
+	mobile: 420,
+	tablet: 720,
+	desktop: 1024,
+})
+
+export const getViewSize = (width) => {
+  if (width <= viewSizes.mobile) {
+    return viewSizes.mobile;
+  }
+  if (width <= viewSizes.tablet) {
+    return viewSizes.tablet;
+  }
+
+  return viewSizes.desktop
+}
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;

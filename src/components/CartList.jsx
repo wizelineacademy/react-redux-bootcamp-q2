@@ -1,13 +1,11 @@
 import React from 'react'
-import CartItem from './CartItem'
+import CartItem from './CartItem';
 
 import { ItemList } 
   from '../styles/components/CartList.styles.js';
 
-import CartItems from '../utils/CartItems.json'
-
-const CartList = () => {
-  const cartItems = CartItems?.data?.products?.items;
+const CartList = (props) => {
+  const { cartItems } = props
   const renderList = cartItems
     ? 
       <ItemList>

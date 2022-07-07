@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { viewSizes } from '../globalStyles.js'
 
 const colors = {
   secondaryColor: "rgb(255,255,255)",
@@ -6,19 +7,20 @@ const colors = {
 }
 
 export const Summary = styled.div`
-  min-width: 280px;
-  max-width: 420px;
+  min-width: 230px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   gap: 10px;
   padding: 10px;
   position: sticky;
+  top: ${(props) => `${props.$top}px` || 0};
   border-bottom: 1px solid black;
+  background-color: ${colors.secondaryColor};
+  z-index: 0;
 
-  @media only screen and (min-width: 420px) {
-    position: relative;
+  @media only screen and (min-width: ${viewSizes.mobile}px) {
+    max-width: 230px;
   }
 `;
 
