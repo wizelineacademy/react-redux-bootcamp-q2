@@ -1,14 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
+
+import { CartContext } from './CartProvider'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import { Card, CardInfo, Image, Title, Paragraph, CardButtons, 
-  Button, QuantityButtons } 
+  Button, QuantityButtons, Input } 
   from '../styles/components/CartItem.styles.js';
 
 const CartItem = (props) => {
-  const {id, name, images, price, quantity} = props
+  const {id, name, images, price, quantity } = props
+  const { incrementQuantity, decrementQuantity, setQuantity } = useContext(CartContext);
 
   return (
     <Card data-testid="cart-card">
@@ -28,7 +31,7 @@ const CartItem = (props) => {
               data-testid="cart-btn-rest-1-item"
               ><FontAwesomeIcon icon={faMinus} />
             </Button>
-            <Paragraph>{quantity || 0}</Paragraph>
+            <Input type="text" name="" id="" defaultValue={quantity || 0}/>
             <Button
               data-testid="cart-btn-add-1-item"
               ><FontAwesomeIcon icon={faPlus} />

@@ -1,13 +1,17 @@
-import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
+import React, { useRef, useLayoutEffect, useState, useEffect, useContext } from 'react';
+import { CartContext } from './CartProvider';
 import { Title } from '../styles/components/CartSummary.styles.js';
 import { getViewSize } from '../styles/globalStyles.js';
 import { Summary, Paragraph, Button } 
   from '../styles/components/CartSummary.styles.js';
 
-const CartSummary = ({totalItems, totalCost}) => {
+const CartSummary = () => {
+  const { cartList } = useContext(CartContext);
   const mainRef = useRef();
   const [offsetTop, setOffsetTop] = useState(0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  const {totalItems, totalCost} = getTotals(cartList);
 
   useLayoutEffect(() => {
     setOffsetTop(getOffsetTop(mainRef));
@@ -45,6 +49,15 @@ function getWindowSize() {
   const {innerWidth} = window;
 
   return getViewSize(innerWidth);
+}
+
+function getTotals(cartItems) {
+  return cartItems.reduce((prevValue, currValue) => {
+    return ({
+      totalItems: prevValue.totalItems + currValue.quantity, 
+      totalCost: prevValue.totalCost + (currValue.price * currValue.quantity)
+    })
+  }, {totalItems: 0, totalCost: 0})
 }
 
 export default CartSummary

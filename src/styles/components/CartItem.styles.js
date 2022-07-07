@@ -104,6 +104,11 @@ export const Paragraph = styled.p `
     }}
 `;
 
+export const Input = styled.input`
+  width: 50%;
+  font-size: 1rem;
+  padding: 5px;
+`;
 
 export const Button = styled.button `
   align-self: center;
