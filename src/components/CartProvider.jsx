@@ -23,18 +23,22 @@ function reducer(state, action) {
       });
     case '@quantity/decrementBy1':
       return state.map(item => {
-        if (item.id === action.id) {
+        if (item.id === action.id && item.quantity > 0) {
             return {...item, quantity: item.quantity - 1}
           }
           return {...item}
-      });
+      }).filter(item => item.quantity >= 0);
     case '@quantity/setQuantity':
       return state.map(item => {
-        if (item.id === action.payload.id) {
-            return {...item, quantity: action.quantity}
+        if (item.id === action.id) {
+            if (action.quantity === '') {
+              return {...item, quantity: 0}
+            }
+
+            return {...item, quantity: parseInt(action.quantity)}
           }
           return {...item}
-      }).filer(item => item.quantity > 0);
+      }).filter(item => item.quantity >= 0);
     default:
       return state;
   }

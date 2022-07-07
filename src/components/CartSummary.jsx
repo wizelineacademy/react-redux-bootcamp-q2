@@ -52,12 +52,17 @@ function getWindowSize() {
 }
 
 function getTotals(cartItems) {
-  return cartItems.reduce((prevValue, currValue) => {
+  let totals = cartItems.reduce((prevValue, currValue) => {
     return ({
       totalItems: prevValue.totalItems + currValue.quantity, 
       totalCost: prevValue.totalCost + (currValue.price * currValue.quantity)
     })
   }, {totalItems: 0, totalCost: 0})
+
+  totals.totalItems = Math.round(totals.totalItems * 100) / 100
+  totals.totalCost =  Math.round(totals.totalCost * 100) / 100
+
+  return totals
 }
 
 export default CartSummary
