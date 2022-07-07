@@ -39,10 +39,12 @@ export const CardInfo = styled.div`
 export const CardButtons = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
   border-radius: 10px;
-  background-color: black;
+  background-color: rgb(200, 200, 200);
   padding: 5px;
 
   @media only screen and (min-width: 600px) {
@@ -55,7 +57,7 @@ export const QuantityButtons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 `;
 
 export const Image = styled.img`
@@ -91,11 +93,12 @@ export const Paragraph = styled.p `
     switch(props.$type) {
       case "price":
         return css`
-        color: ${colors.tertiaryColor};
+          color: ${colors.mainColor};
+          font-weight: bold;
         `;
         default:
           return css`
-            color: ${colors.secondaryColor};
+            color: ${colors.mainColor};
           `;
       }
     }}

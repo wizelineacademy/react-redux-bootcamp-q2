@@ -19,10 +19,6 @@ const CartItem = (props) => {
       <CardInfo>
         <Title data-testid="cart-item-name">{name || "Not Available"}</Title>
         <CardButtons>
-          <Button
-            data-testid="cart-btn-remove-item"
-            ><FontAwesomeIcon icon={faTrash} />
-          </Button>
           <Paragraph $type="price"
             data-testid="cart-product-price"
             >${quantity * price || 0}
@@ -40,6 +36,10 @@ const CartItem = (props) => {
           </QuantityButtons>
         </CardButtons>
       </CardInfo>
+      <Button
+        data-testid="cart-btn-remove-item"
+        ><FontAwesomeIcon icon={faTrash} />
+      </Button>
     </Card>
   )
 }

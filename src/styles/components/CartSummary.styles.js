@@ -19,7 +19,7 @@ export const Summary = styled.div`
   background-color: ${colors.secondaryColor};
   z-index: 0;
 
-  @media only screen and (min-width: ${viewSizes.mobile}px) {
+  @media only screen and (min-width: ${viewSizes.tablet}px) {
     max-width: 230px;
   }
 `;
@@ -39,6 +39,7 @@ export const Paragraph = styled.p`
 
   span {
     font-weight: normal;
+    white-space: nowrap;
   }
 `;
 

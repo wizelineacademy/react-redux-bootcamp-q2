@@ -10,7 +10,7 @@ export const CartDetails = styled.div`
   flex-direction: column;
   width: 100%;
 
-  @media only screen and (min-width: ${viewSizes.mobile}px) {
+  @media only screen and (min-width: ${viewSizes.tablet}px) {
     flex-direction: row-reverse;
   }
 `;

@@ -9,7 +9,7 @@ import { CartContainer, CartDetails, Title, EmptyCart }
 import CartItems from '../utils/CartItems.json';
 
 export const Cart = () => {
-  const cartItems = CartItems?.data?.products?.items || [];
+  const [cartItems, setCartItems] = useState(CartItems?.data?.products?.items || [])
   const titleRef = useRef();
   const [offsetTop, setOffsetTop] = useState(getOffsetTop(titleRef) || 0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
@@ -38,23 +38,29 @@ export const Cart = () => {
     };
   }, [windowSize]);  
   
-  if (cartItems.length > 0) {
-    return (
-      <CartContainer>
-        <Title ref={titleRef} $top={offsetTop}>Shopping cart</Title>
-        <CartDetails>
-          <CartSummary {...itemsTotals}/>
-          <CartList cartItems={cartItems}/>
-        </CartDetails>
-      </CartContainer>
-    )
-  } else {
-    return(
-      <EmptyCart>
-        There's no items in your cart :(
-      </EmptyCart>
-    )
+  const DisplayCart = () => {
+    if (cartItems.length > 0) {
+      return (
+        <CartContainer>
+          <Title ref={titleRef} $top={offsetTop}>Shopping cart</Title>
+          <CartDetails>
+            <CartSummary {...itemsTotals}/>
+            <CartList cartItems={cartItems}/>
+          </CartDetails>
+        </CartContainer>
+      )
+    } else {
+      return(
+        <EmptyCart>
+          There's no items in your cart :(
+        </EmptyCart>
+      )
+    }
   }
+
+  return (
+    <DisplayCart/>
+  )
 }
 
 function getOffsetTop(ref) {
