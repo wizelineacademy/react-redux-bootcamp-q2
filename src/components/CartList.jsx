@@ -6,9 +6,9 @@ import { ItemList }
   from '../styles/components/CartList.styles.js';
 
 const CartList = () => {
-  const { cartList, incrementQuantity, decrementQuantity, setQuantity } = useContext(CartContext);
+  const { cartList } = useContext(CartContext);
   
-  const renderList = cartList
+  return cartList
     ? 
       <ItemList>
         {
@@ -18,10 +18,6 @@ const CartList = () => {
         }
       </ItemList>
     : <div>Empty</div>;
-
-  return (
-    renderList
-  )
 }
 
 export default CartList

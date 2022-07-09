@@ -11,7 +11,7 @@ import { Card, CardInfo, Image, Title, Paragraph, CardButtons,
 
 const CartItem = (props) => {
   const { id, name, images, price, quantity } = props
-  const { cartList, incrementQuantity, decrementQuantity, setQuantity } = useContext(CartContext);
+  const { incrementQuantity, decrementQuantity, setQuantity } = useContext(CartContext);
   const inputRef = useRef();
 
   return (

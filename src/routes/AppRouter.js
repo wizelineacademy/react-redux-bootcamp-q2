@@ -1,12 +1,14 @@
-import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React, { useContext } from 'react';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {Products} from '../pages/Products';
 import {Cart} from '../pages/Cart';
 import {Home} from '../pages/Home';
 import {Header} from '../components/Header';
 import { Login } from '../pages/Login';
+import { UserContext } from '../components/UserData'
 
 export const AppRouter = () => {
+  const { activeUser } = useContext(UserContext);
   return (
     <Router>
       <Header />
@@ -15,10 +17,10 @@ export const AppRouter = () => {
           <Home />
         </Route>
         <Route path='/products'>
-          <Products />
+          { activeUser ? <Products /> : <Redirect to="/login"/> }
         </Route>
         <Route path='/cart'>
-          <Cart />
+          { activeUser ? <Cart /> : <Redirect to="/login"/> }
         </Route>
         <Route path='/login'>
           <Login />

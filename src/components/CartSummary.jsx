@@ -1,8 +1,7 @@
 import React, { useRef, useLayoutEffect, useState, useEffect, useContext } from 'react';
 import { CartContext } from './CartProvider';
-import { Title } from '../styles/components/CartSummary.styles.js';
 import { getViewSize } from '../styles/globalStyles.js';
-import { Summary, Paragraph, Button } 
+import { Summary, Paragraph, Button, Title } 
   from '../styles/components/CartSummary.styles.js';
 
 const CartSummary = () => {
