@@ -2,20 +2,25 @@ import React from "react";
 import mockData from "../../public/data/products.json";
 import CartSummary from "../components/CartSummary";
 import CartTable from "../components/CartTable";
-import Container from "../styles/pages/Cart.styles";
+import {
+	Container,
+	MainContainer,
+	BoldTitle,
+	Line,
+} from "../styles/pages/Cart.styles";
 
 export const Cart = () => {
 	const { data } = mockData;
 	const items = data.products.items;
 
 	return (
-		<>
-			<p>Shopping Cart</p>
-			<hr />
+		<MainContainer>
 			<Container>
+				<BoldTitle>Shopping Cart</BoldTitle>
+				<Line />
 				<CartTable items={[items[0], items[1]]} />
-				<CartSummary total={items[0].price + items[1].price} />
 			</Container>
-		</>
+			<CartSummary total={items[0].price + items[1].price} />
+		</MainContainer>
 	);
 };

@@ -1,3 +1,8 @@
+import {
+	QuantityContainer,
+	TableCell,
+} from "../styles/components/CartTable.styles";
+
 const CartTable = ({ items }) => {
 	return (
 		<table>
@@ -13,25 +18,27 @@ const CartTable = ({ items }) => {
 			<tbody>
 				{items.map((item) => (
 					<tr key={item.id}>
-						<td>
+						<TableCell>
 							<img
 								src={item.images[0]}
 								alt={item.description}
 								width={100}
 								height={100}
 							/>
-						</td>
-						<td>{item.name}</td>
-						<td>
-							<input
-								type="number"
-								// value={quantity}
-								// onChange={handleQuantityChange}
-							/>
-							<button>Remove</button>
-						</td>
-						<td>${item.price}</td>
-						<td>${item.price}</td>
+						</TableCell>
+						<TableCell>{item.name}</TableCell>
+						<TableCell>
+							<QuantityContainer>
+								<input
+									type="number"
+									// value={quantity}
+									// onChange={handleQuantityChange}
+								/>
+								<button>Remove</button>
+							</QuantityContainer>
+						</TableCell>
+						<TableCell>${item.price}</TableCell>
+						<TableCell>${item.price}</TableCell>
 					</tr>
 				))}
 			</tbody>
