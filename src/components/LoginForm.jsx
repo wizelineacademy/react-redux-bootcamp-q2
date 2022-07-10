@@ -14,7 +14,7 @@ const LoginForm = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setActiveUser('');
+    setActiveUser(null);
   }, [])
   
   const handleOnClick = () => {

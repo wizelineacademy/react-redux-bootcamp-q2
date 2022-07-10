@@ -9,7 +9,6 @@ import {
 
 export const Header = () => {
   const { activeUser } = useContext(UserContext);
-  console.log('active user header', activeUser);
   return (
     <Bar className="topnav" id="myTopnav" data-testid="bar">
       <Links to="/">

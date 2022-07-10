@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState, useEffect, useContext } from 'react'
-import CartProvider, { CartContext } from '../components/CartProvider'
+import { UserContext } from '../components/UserData'
 
 import CartList from '../components/CartList'
 import CartSummary from '../components/CartSummary'
@@ -31,9 +31,11 @@ export const Cart = () => {
   }, [windowSize]);  
   
   const DisplayCart = () => {
-    const { cartList } = useContext(CartContext);
+    const { activeUser, getUserCart } = useContext(UserContext);
+    const cartList = getUserCart(activeUser);
+
     return (
-      <CartProvider>
+      <>
         {
           cartList.length > 0 
             ? 
@@ -49,14 +51,12 @@ export const Cart = () => {
                 There's no items in your cart :(
               </EmptyCart>
         }
-      </CartProvider>
+      </>
     )
   }
 
   return (
-    <CartProvider>
-      <DisplayCart/>
-    </CartProvider>
+    <DisplayCart/>
   )
 }
 

@@ -1,6 +1,6 @@
 import React, {useContext, useRef} from 'react'
 
-import { CartContext } from './CartProvider'
+import { UserContext } from './UserData'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +11,7 @@ import { Card, CardInfo, Image, Title, Paragraph, CardButtons,
 
 const CartItem = (props) => {
   const { id, name, images, price, quantity } = props
-  const { incrementQuantity, decrementQuantity, setQuantity } = useContext(CartContext);
+  const { activeUser, incrementQuantityBy1, decrementQuantityBy1, setItemQuantity } = useContext(UserContext);
   const inputRef = useRef();
 
   return (
@@ -30,17 +30,17 @@ const CartItem = (props) => {
           <QuantityButtons>
             <Button
               data-testid="cart-btn-rest-1-item"
-              onClick={() => decrementQuantity(id)}
+              onClick={() => decrementQuantityBy1(activeUser, id)}
               ><FontAwesomeIcon icon={faMinus} />
             </Button>
             <Input type="text" name="" id="" 
               ref={inputRef}
               value={quantity || 0}
-              onChange={() => setQuantity(id, inputRef.current.value)}
+              onChange={() => setItemQuantity(activeUser, id, inputRef.current.value)}
             />
             <Button
               data-testid="cart-btn-add-1-item"
-              onClick={() => incrementQuantity(id)}
+              onClick={() => incrementQuantityBy1(activeUser, id)}
               ><FontAwesomeIcon icon={faPlus} />
             </Button>
           </QuantityButtons>

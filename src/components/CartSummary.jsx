@@ -1,16 +1,16 @@
 import React, { useRef, useLayoutEffect, useState, useEffect, useContext } from 'react';
-import { CartContext } from './CartProvider';
+import { UserContext } from './UserData';
 import { getViewSize } from '../styles/globalStyles.js';
 import { Summary, Paragraph, Button, Title } 
   from '../styles/components/CartSummary.styles.js';
 
 const CartSummary = () => {
-  const { cartList } = useContext(CartContext);
+  const { activeUser, getUserCart } = useContext(UserContext);
   const mainRef = useRef();
   const [offsetTop, setOffsetTop] = useState(0);
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
-  const {totalItems, totalCost} = getTotals(cartList);
+  const {totalItems, totalCost} = getTotals(getUserCart(activeUser));
 
   useLayoutEffect(() => {
     setOffsetTop(getOffsetTop(mainRef));

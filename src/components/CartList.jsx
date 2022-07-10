@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import CartItem from './CartItem';
-import { CartContext } from './CartProvider'
+import { UserContext } from './UserData'
 
 import { ItemList } 
   from '../styles/components/CartList.styles.js';
 
 const CartList = () => {
-  const { cartList } = useContext(CartContext);
+  const { activeUser, getUserCart } = useContext(UserContext);
+  const cartList = getUserCart(activeUser);
   
   return cartList
     ? 
