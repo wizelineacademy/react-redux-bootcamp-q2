@@ -21,6 +21,7 @@ export const Summary = styled.div`
 
   @media only screen and (min-width: ${viewSizes.tablet}px) {
     max-width: 230px;
+    align-self: flex-start;
   }
 `;
 

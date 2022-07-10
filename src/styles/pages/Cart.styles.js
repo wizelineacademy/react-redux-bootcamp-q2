@@ -3,6 +3,10 @@ import { viewSizes } from '../globalStyles.js'
 
 export const CartContainer = styled.div`
   position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const CartDetails = styled.div`
