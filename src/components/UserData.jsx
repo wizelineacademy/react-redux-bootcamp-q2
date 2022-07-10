@@ -7,7 +7,8 @@ const actions = {
   SET_ACTIVE_USER: '@global/setActiveUser',
   INCREMENT_QUANTITY_BY1: '@cart/quantity/incrementQuantityBy1',
   DECREMENT_QUANTITY_BY1: '@cart/quantity/decrementQuantityBy1',
-  SET_ITEM_QUANTITY: '@cart/quantity/setItemQuantity'
+  SET_ITEM_QUANTITY: '@cart/quantity/setItemQuantity',
+  ADD_PRODUCT_TO_CART: '@products/addProductToCart',
 }
 
 const usersData = {
@@ -116,6 +117,43 @@ const UserData = ({ children }) => {
         newState.users = [...usersStored];
         setWizelineStorage(newState);
         return newState;
+      case '@products/addProductToCart':
+        usersStored = state.users.map(user => {
+          if (user.id === action.id) {
+            const indexOfItemInCart = user.cartItems.findIndex(item => item.id === action.productId)
+            console.log('indexOfItem', indexOfItemInCart)
+            if (indexOfItemInCart >= 0) {
+              const newUserCart = user.cartItems.map((item, idx) => {
+                if(idx === indexOfItemInCart) {
+                  return {
+                    ...item,
+                    quantity: item.quantity + 1
+                  }
+                }
+                return {...item}
+              })
+              return {
+                ...user,
+                cartItems: [...newUserCart]
+              }
+            } else {
+              return {
+                ...user, 
+                cartItems: [
+                  ...user.cartItems, {
+                    id: action.productId,
+                    quantity: 1
+                  }
+                ]
+              }
+            }
+          }
+          return {...user}
+        })
+
+        newState.users = [...usersStored];
+        setWizelineStorage(newState);
+        return newState;
       default:
           return state;
     }
@@ -146,8 +184,10 @@ const UserData = ({ children }) => {
       dispatch({ type: actions.DECREMENT_QUANTITY_BY1, id: id, cartItemId: cartItemId});
     },
     setItemQuantity: (id, cartItemId, quantity) => {
-      console.log('set', id, cartItemId, quantity);
       dispatch({ type: actions.SET_ITEM_QUANTITY, id: id, cartItemId: cartItemId, quantity: quantity});
+    },
+    addProductToCart: (id, productId) => {
+      dispatch({ type: actions.ADD_PRODUCT_TO_CART, id: id, productId: productId});
     }
   }
 

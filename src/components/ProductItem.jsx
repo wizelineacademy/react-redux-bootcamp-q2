@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { UserContext } from './UserData'
 
 import { Card, CardInfo, Image, Title, Paragraph, CardButtons, Button } 
   from '../styles/components/ProductItem.styles.js';
 
 const ProductItem = (props) =>{
-  const { name, images, price, categories } = props
+  const { id, name, images, price, categories } = props
+  const { activeUser, addProductToCart } = useContext(UserContext);
 
   return (
     <Card data-testid="product-card">
@@ -25,6 +28,7 @@ const ProductItem = (props) =>{
       <CardButtons>
         <Button
           data-testid="product-btn-add_to_cart"
+          onClick={() => addProductToCart(activeUser, id)}
           >Add to cart
         </Button>
       </CardButtons>
