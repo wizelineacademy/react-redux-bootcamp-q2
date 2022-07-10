@@ -5,21 +5,22 @@ import { Cart } from "../pages/Cart";
 import { Home } from "../pages/Home";
 import { Header } from "../components/Header";
 import { Login } from "../pages/Login";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const AppRouter = () => {
 	return (
 		<Router>
 			<Header />
 			<Switch>
-				<Route exact path="/">
+				<ProtectedRoute exact path="/">
 					<Home />
-				</Route>
-				<Route path="/products">
+				</ProtectedRoute>
+				<ProtectedRoute path="/products">
 					<Products />
-				</Route>
-				<Route path="/cart">
+				</ProtectedRoute>
+				<ProtectedRoute path="/cart">
 					<Cart />
-				</Route>
+				</ProtectedRoute>
 				<Route path="/login">
 					<Login />
 				</Route>

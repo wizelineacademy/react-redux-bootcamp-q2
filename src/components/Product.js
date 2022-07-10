@@ -15,7 +15,7 @@ const Product = (productData) => {
 			<Name>{name}</Name>
 			<span>{categories[0]}</span>
 			<Price>${price}</Price>
-			<AddButton />
+			<AddButton productData={productData} />
 		</StyledProduct>
 	);
 };
