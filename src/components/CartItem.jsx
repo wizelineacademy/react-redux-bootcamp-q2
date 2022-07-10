@@ -11,7 +11,7 @@ import { Card, CardInfo, Image, Title, Paragraph, CardButtons,
 
 const CartItem = (props) => {
   const { id, name, images, price, quantity } = props
-  const { activeUser, incrementQuantityBy1, decrementQuantityBy1, setItemQuantity } = useContext(UserContext);
+  const { activeUser, incrementQuantityBy1, decrementQuantityBy1, setItemQuantity, deleteProductFromCart } = useContext(UserContext);
   const inputRef = useRef();
 
   return (
@@ -33,7 +33,7 @@ const CartItem = (props) => {
               onClick={() => decrementQuantityBy1(activeUser, id)}
               ><FontAwesomeIcon icon={faMinus} />
             </Button>
-            <Input type="text" name="" id="" 
+            <Input type="text" name="itemQuantity" id="" 
               ref={inputRef}
               value={quantity || 0}
               onChange={() => setItemQuantity(activeUser, id, inputRef.current.value)}
@@ -48,6 +48,7 @@ const CartItem = (props) => {
       </CardInfo>
       <Button
         data-testid="cart-btn-remove-item"
+        onClick={() => deleteProductFromCart(activeUser, id)}
         ><FontAwesomeIcon icon={faTrash} />
       </Button>
     </Card>

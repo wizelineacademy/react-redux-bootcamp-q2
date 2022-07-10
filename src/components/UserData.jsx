@@ -9,6 +9,7 @@ const actions = {
   DECREMENT_QUANTITY_BY1: '@cart/quantity/decrementQuantityBy1',
   SET_ITEM_QUANTITY: '@cart/quantity/setItemQuantity',
   ADD_PRODUCT_TO_CART: '@products/addProductToCart',
+  DELETE_PRODUCT_FROM_CART: '@cart/deleteProductFromCart',
 }
 
 const usersData = {
@@ -154,6 +155,20 @@ const UserData = ({ children }) => {
         newState.users = [...usersStored];
         setWizelineStorage(newState);
         return newState;
+      case '@cart/deleteProductFromCart':
+        if (!action.id) return state;
+        usersStored = state.users.map(user => {
+          if (user.id === action.id) {
+            return {
+              ...user,
+              cartItems: user.cartItems.filter(item => item.id !== action.productId)
+            }
+          }
+          return {...user}
+        })
+        newState.users = [...usersStored];
+        setWizelineStorage(newState);
+        return newState;
       default:
           return state;
     }
@@ -188,6 +203,9 @@ const UserData = ({ children }) => {
     },
     addProductToCart: (id, productId) => {
       dispatch({ type: actions.ADD_PRODUCT_TO_CART, id: id, productId: productId});
+    },
+    deleteProductFromCart: (id, productId) => {
+      dispatch({ type: actions.DELETE_PRODUCT_FROM_CART, id: id, productId: productId});
     }
   }
 

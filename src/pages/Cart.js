@@ -35,23 +35,23 @@ export const Cart = () => {
     const cartList = getUserCart(activeUser);
 
     return (
-      <>
+      <CartContainer>
         {
           cartList.length > 0 
             ? 
-              <CartContainer>
+              <>
                 <Title ref={titleRef} $top={offsetTop}>Shopping cart</Title>
                 <CartDetails>
                   <CartSummary/>
                   <CartList />
-                </CartDetails>
-              </CartContainer>
+                </CartDetails>  
+              </>
             : 
-              <EmptyCart>
-                There's no items in your cart :(
-              </EmptyCart>
+            <EmptyCart>
+              There's no items in your cart :(
+            </EmptyCart>
         }
-      </>
+      </CartContainer>
     )
   }
 
