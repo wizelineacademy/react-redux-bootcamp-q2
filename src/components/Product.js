@@ -7,11 +7,11 @@ import {
 } from "../styles/components/Product.styles";
 
 const Product = (productData) => {
-	const { categories, description, images, name, price } = productData;
+	const { categories, images, name, price } = productData;
 
 	return (
 		<StyledProduct>
-			<Image src={images[0]} alt={description} />
+			<Image src={images[0]} alt={name} />
 			<Name>{name}</Name>
 			<span>{categories[0]}</span>
 			<Price>${price}</Price>
