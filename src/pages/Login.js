@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { login } from "../store/slices/login";
 import Button from "../styles/components/AddButton.styles";
 import {
@@ -15,6 +16,7 @@ export const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const changeUsername = (e) => {
 		setUsername(e.target.value);
@@ -28,6 +30,7 @@ export const Login = () => {
 		const random = await loginApi(username, password);
 		if (random) {
 			dispatch(login());
+			history.push("/products");
 		}
 	};
 
