@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Main} from '../styles/pages/Home.styles';
+import {Main} from './Home.styles';
 
 export const Home = () => {
   return (

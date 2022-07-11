@@ -3,7 +3,7 @@ import {
   Bar,
   Links,
   FlexContainer,
-} from '../styles/components/Header.styles.js';
+} from './Header.styles.js';
 
 export const Header = () => {
   return (
