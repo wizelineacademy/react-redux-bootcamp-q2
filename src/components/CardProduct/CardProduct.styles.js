@@ -10,6 +10,8 @@ export const Wrapper = styled.div`
   font-weight: bold;
   margin: 7rem 1rem 2rem 1rem;
   color:#73777B;
+  width: 100wv;
+  heigth: 100hv;
   
   .principal-image-product{
     max-width: 200px;
