@@ -33,9 +33,9 @@ export const Detail = styled.div`
 `;
 
 export const Title = styled.h3`
-  padding: 24px; 
+  padding: 24px;
   margin: 0;
-` 
+`;
 
 export const TableContainer = styled.div`
   height: 50vh;
@@ -50,5 +50,3 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-

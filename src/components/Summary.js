@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 import { Button } from '../styles/components/Producto.styles';
-import { ColumnContainer, Container, Subtitle } from '../styles/components/Summary';
+import {
+  ColumnContainer,
+  Container,
+  Subtitle,
+} from '../styles/components/Summary';
 
 const Summary = ({ productos, quantities }) => {
   const items = useMemo(
