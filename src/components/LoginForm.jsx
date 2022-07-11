@@ -7,15 +7,17 @@ import { Form, Title, Label, Input, Button }
   from '../styles/components/Login.styles.js';
 
 const LoginForm = () => {
-  const { setActiveUser } = useContext(UserContext);
+  const { activeUser, setActiveUser } = useContext(UserContext);
   const userNameRef = useRef();
   const passwordRef = useRef();
   const [customErrorToShow, setCustomErrorToShow] = useState('');
   const history = useHistory();
 
   useEffect(() => {
-    setActiveUser(null);
-  }, [])
+    if (activeUser !== null) {
+      setActiveUser(null);
+    }
+  }, [activeUser, setActiveUser])
   
   const handleOnClick = () => {
     const username = userNameRef.current.value;

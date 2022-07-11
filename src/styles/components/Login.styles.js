@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { viewSizes } from '../globalStyles.js';
 
 export const Form = styled.form`
   display: flex;
