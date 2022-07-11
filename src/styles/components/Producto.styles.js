@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledProducto = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between; ;
+  justify-content: space-between;
 `;
 
 export const StyledImageWrapper = styled.div`
@@ -15,6 +15,7 @@ export const StyledImageWrapper = styled.div`
 export const Image = styled.img`
   max-height: 100%;
   max-width: 100%;
+  object-fit: cover;
 `;
 
 export const StyledInfoWrapper = styled.div`
@@ -27,6 +28,10 @@ export const StyledInfoWrapper = styled.div`
 export const Name = styled.h3`
   margin: 0;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `;
 
 export const Price = styled.h4`

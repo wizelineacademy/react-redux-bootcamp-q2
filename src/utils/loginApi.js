@@ -3,7 +3,7 @@ const mockedUser = {
   username: 'Wizeline',
 };
 
-export default async function loginApi(username, password) {
+export default function loginApi(username, password) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (username === 'wizeline' && password === 'Rocks!') {

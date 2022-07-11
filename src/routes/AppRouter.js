@@ -5,25 +5,33 @@ import { Cart } from '../pages/Cart';
 import { Home } from '../pages/Home';
 import { Header } from '../components/Header';
 import { Login } from '../pages/Login';
+import { Logout } from '../pages/Logout';
+import RequiredAuthRoute from '../components/RequiredAuthRoute';
+import AuthProvider from '../components/AuthProvider';
 
 export const AppRouter = () => {
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/products">
-          <Products />
-        </Route>
-        <Route path="/cart">
-          <Cart />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Header />
+        <Switch>
+          <RequiredAuthRoute exact path="/">
+            <Home />
+          </RequiredAuthRoute>
+          <RequiredAuthRoute path="/products">
+            <Products />
+          </RequiredAuthRoute>
+          <RequiredAuthRoute path="/cart">
+            <Cart />
+          </RequiredAuthRoute>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <RequiredAuthRoute path="/logout">
+            <Logout />
+          </RequiredAuthRoute>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 };

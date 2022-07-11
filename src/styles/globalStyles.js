@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     background: white;
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
+  html, body, #root{
+    height: 100%;
+  }
 `;
 
 export default GlobalStyle;
