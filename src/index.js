@@ -7,8 +7,6 @@ import {productsFetch} from "./store/products/slice";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-store.dispatch(productsFetch());
-
 root.render(
   <React.StrictMode>
       <Provider store={store}>

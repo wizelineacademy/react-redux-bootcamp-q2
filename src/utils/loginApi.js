@@ -13,3 +13,7 @@ export default async function loginApi(username, password) {
 		}, 500);
 	});
 }
+
+export const getUser = () => {
+	return sessionStorage.getItem('user');
+}
