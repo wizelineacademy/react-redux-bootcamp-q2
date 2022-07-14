@@ -69,7 +69,8 @@ export const Wrapper = styled.div`
       color: white;
       width:calc(100% - 16px);
       font-size: 1.2rem;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Roboto","Helvetica","Arial",sans-serif;
+
       height: 50px;
     }
   

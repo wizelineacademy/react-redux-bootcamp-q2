@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
   width:100%;
   position:fixed;
   top:0;

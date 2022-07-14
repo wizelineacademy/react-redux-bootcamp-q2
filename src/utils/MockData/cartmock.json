@@ -1,0 +1,108 @@
+{
+  "data": {
+    "products": {
+      "items": [
+        {
+          "id": 1,
+          "quantity": 1,
+          "name": "85\" QN95B Samsung Neo QLED 4K Smart TV (2022)",
+          "price": 5999.99,
+          "description": "Quantum Matrix with Mini LEDs Brilliant details shine even in daylight with Quantum Matrix Technology. Powered by a huge grid of Samsung’s ultra-precise Quantum Mini LEDs, it takes exact control of the individual zones of light in your picture for breathtaking color and contrast.",
+          "images": [
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QS95B_QN95B_QN85B_Q80B_Q70B_Q-Symphony_PC_708xV.jpg?$feature-benefit-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QN85B_Q80B_100_Color_Volume_with_Quantum_Dot_PC_708xV.jpg?$feature-benefit-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QLED_Features_EyeComfort_Mode_4K_PC_708xV.jpg?$feature-benefit-jpg"
+          ],
+          "categories": ["Television & video"]
+        },
+        {
+          "id": 2,
+          "quantity": 2,
+          "name": "85\" QN95B Samsung Neo QLED 4K Smart TV (2022)",
+          "price": 5999.99,
+          "description": "Quantum Matrix with Mini LEDs Brilliant details shine even in daylight with Quantum Matrix Technology. Powered by a huge grid of Samsung’s ultra-precise Quantum Mini LEDs, it takes exact control of the individual zones of light in your picture for breathtaking color and contrast.",
+          "images": [
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QS95B_QN95B_QN85B_Q80B_Q70B_Q-Symphony_PC_708xV.jpg?$feature-benefit-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QN85B_Q80B_100_Color_Volume_with_Quantum_Dot_PC_708xV.jpg?$feature-benefit-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/05192022/2022_QLED_Features_EyeComfort_Mode_4K_PC_708xV.jpg?$feature-benefit-jpg"
+          ],
+          "categories": ["Television & video"]
+        },
+        {
+          "id": 3,
+          "quantity": 3,
+          "name": "50” Class QN90B Samsung Neo QLED 4K Smart TV (2022)",
+          "price": 1599.99,
+          "description": " • Brilliant details shine even in well-lit spaces/rooms with Samsung Neo QLED ultra-precise Mini LEDs.\n • Every detail bursts to life with the realistic contrast and brilliance of Quantum HDR 24X.\n • You’ve got the best view from every seat, no matter where you sit down.\n • Experience vividly realistic 3D sound that puts you in the middle of the action.",
+          "images": [
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/01_QN65QN90BAFXZA_011_Front3_Titan-Black.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/02_QN65QN90BAFXZA_004_L-Side_Titan-Black.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/04_SDSAC-3862-04-Qn90B-PDP-GALLERY-TV-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/easy-asset/02252022/05_QN90B_Lifestyle_03_Approved.jpg?$product-details-jpg"
+          ],
+          "categories": ["Television & video"]
+        },
+        {
+          "id": 4,
+          "quantity": 4,
+          "name": "32\" The Frame QLED 4K Smart TV (2021)",
+          "price": 499.99,
+          "description": "The elegant, modern design blends flawlessly to elevate your home décor.\n   Transform The Frame into a beautiful work of art when you are not watching TV with Art Mode.",
+          "images": [
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/frame-tv/pdp/020620/gallery/01-PDP-GALLERY-Frame-product-QN75LS03TAFXZA-Front-black-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/frame-tv/pdp/020620/gallery/01-PDP-GALLERY-Frame-product-QN75LS03TAFXZA-Front-black-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/frame-tv/pdp/020620/gallery/04-PDP-GALLERY-Frame-product-QN75LS03TAFXZA-R-Side-black-1600x1200.jpg?$product-details-jpg"
+          ],
+          "categories": ["Television & video"]
+        },
+        {
+          "id": 5,
+          "quantity": 1,
+          "name": "32\" Q60A QLED 4K Smart TV (2021)",
+          "price": 449.99,
+          "description": "Brilliant, vibrant color with Quantum Dot\n   A billion stay-true shades of breathtaking color\n    100% Color Volume with Quantum Dot\n    Quantum Dot powers over a billion brilliant shades of vivid and lifelike colors that stay true without fading, regardless of the scene's brightness.*\n  Enhanced contrast\n    Dual LED\n      Embrace every bold detail brought to life with dedicated warm and cool LED backlights that optimize colors and dramatically enhance contrast.\n  Go beyond HD with more dynamic color\n    Quantum HDR\n      Experience the full effect of every image with dynamic tone mapping that draws from a wider range of color and brightness than standard HD. Deep blacks, vibrant imagery and detail always shine through.\n  ",
+          "images": [
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/qled-4k-tvs/q60a-2021/gallery/02222021/QN65Q60AAFXZA_001_Front1_Titan-Gray-Gallery-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/qled-4k-tvs/q60a-2021/gallery/02222021/QN65Q60AAFXZA_003_L-Perspective_Titan-Gray-Gallery-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/qled-4k-tvs/q60a-2021/gallery/PDP-GALLERY-Q60A-04-1600x1200.jpg?$product-details-jpg",
+            "https://image-us.samsung.com/SamsungUS/home/televisions-and-home-theater/tvs/qled-4k-tvs/qn32q60aafxza/SG21-TotalHome-WhatsInTheBox_Images_Q60A_32.jpg?$product-details-jpg"
+          ],
+          "categories": ["Television & video"]
+        }
+      ]
+    },
+    "categories": {
+      "items": [
+        {
+          "id": 1,
+          "name": "Cell phones"
+        },
+        {
+          "id": 2,
+          "name": "Television & video"
+        },
+        {
+          "id": 3,
+          "name": "Computers"
+        },
+        {
+          "id": 4,
+          "name": "Headphones"
+        },
+        {
+          "id": 5,
+          "name": "Video games"
+        },
+        {
+          "id": 6,
+          "name": "Home office"
+        }
+      ]
+    }
+  },
+  "maxItems": 100,
+  "page": 1,
+  "totalPages": 1,
+  "numOfResults": 73,
+  "totalRecords": 73
+}

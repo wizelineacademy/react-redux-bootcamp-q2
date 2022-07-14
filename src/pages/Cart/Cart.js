@@ -1,62 +1,65 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { Wrapper} from './Cart.styles'
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import InputBase from '@mui/material/InputBase';
+import Button from '@mui/material/Button';
+import { blue, purple } from '@mui/material/colors';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
+import { Input } from '@mui/material';
 
-
-
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  'label + &': {
-    marginTop: theme.spacing(3),
-  },
-  '& .MuiInputBase-input': {
-    borderRadius: 4,
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: '1px solid #ced4da',
-    fontSize: 16,
-    padding: '10px 26px 10px 12px',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:focus': {
-      borderRadius: 4,
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
+const ColorButton = styled(Button)(({ theme }) => ({
+  textAlign: 'center',
+  width:'100%',
+  color: theme.palette.getContrastText(purple[400]),
+  backgroundColor: '#764AF1',
+  '&:hover': {
+    backgroundColor: blue[800],
   },
 }));
 
 export const Cart = ({items: {data}}) => {
   const {products} = data;
-  const [quantity, setAge] = React.useState("");
+  const [items, setItems] = React.useState(products);
+  const totalProducts = items.totalQuantity || 0;
+  const formatNumbers = new Intl.NumberFormat('en-US');
 
-  console.log(quantity);
+  const calcTotal = () => {
+    let sum = 0;
+    for (let item of items.items) {
+      sum += (item.quantity || 1) * item.price;
+    }
+    return sum;
+  }
 
-  let showManualInput = quantity > 9;
+  const subtotal = formatNumbers.format(calcTotal().toFixed(2));
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  const updateQuantityInProduct = (items) => {
+    let quantity = 0;
+    for (let item of items) {
+      quantity += item.quantity
+    }
+    return quantity;
+  }
 
+
+
+  const handleChange = useCallback((product_id, e) => {
+    const productIndex = items.items.findIndex((item) => item.id === product_id);
+    const productItems = { ...items };
+    productItems.items[productIndex].quantity = Number.parseInt(e.target.value);
+    const newQuantity = updateQuantityInProduct(productItems.items)
+    setItems({...productItems, totalQuantity: newQuantity })
+  }, [products]);
+
+  useEffect(() => {
+    setItems({ ...items, totalQuantity: updateQuantityInProduct(items.items) });
+  }, [])
 
   return (
     <Wrapper>
@@ -75,69 +78,49 @@ export const Cart = ({items: {data}}) => {
           <div className='titles-container'>
             <h1>Shopping list</h1>
             <p>Price</p>
+            <p>Total</p>
           </div>
           <Divider/>
             {products.items.map(product => (
               <>
-              
-              <div className='card-product'key={product.id}>
-                <div className='container-image-product'>
-                  <img className='principal-image-product' width={100} height={150}src={product.images[0]} alt={product.id}/>
-                </div>
-
-                <div>
-                  <div className='product-name'>
-                    <p>{product.name}</p>
+                <div className='card-product'key={`${product.id},${product.name} `}>
+                  <div className='container-image-product'>
+                    <img className='principal-image-product' width={100} height={100} src={product.images[0]} alt={product.id}/>
                   </div>
-                  <div className='product-category'>
-                    <p>{product.id}</p>
-                  </div>
-                  <div className='container-button-add-to-cart'>
-                    <div>
-
-                       { showManualInput && (
+                  <div>
+                    <div className='product-name'>
+                      <p>{product.name}</p>
+                    </div>
+                    <div className='product-id'>
+                      <p>{`Product Id: ${product.id}`}</p>
+                    </div>
+                    <div className='container-button-add-to-cart'>
+                      <Stack direction="row" alignItems="start" justifyContent="left" spacing={3}>
+                    
                         <FormControl sx={{ m: 1 }} variant="standard">
                           <InputLabel htmlFor="demo-customized-textbox">Quantity</InputLabel>
-                          <BootstrapInput id="demo-customized-textbox" />
+                          <Input className='input' color='primary' defaultValue={product.quantity} onChange={(e) => handleChange(product.id, e)}> </Input>
                         </FormControl>
-                      )} 
+                    
+                        <IconButton className='removeBotton' color="error" aria-label="delete" size="small">
+                          <DeleteIcon />   
+                          <p>Remove Item</p>
+                        </IconButton>
 
-                        <FormControl sx={{ m: 1 }} variant="standard" disabled={showManualInput}>
-                        <InputLabel variant="standard" htmlFor="uncontrolled-native">Quantity</InputLabel>
-                          <Select
-                            labelId="1"
-                            id="1"
-                            value={quantity}
-                            defaultValue={1}
-                            onChange={handleChange}
-                            input={<BootstrapInput />}
-                          >
-                            <MenuItem key ={1} value={"1"}>1</MenuItem>
-                            <MenuItem key ={2} value={"2"}>2</MenuItem>
-                            <MenuItem key ={3} value={"3"}>3</MenuItem>
-                            <MenuItem key ={4} value={"4"}>4</MenuItem>
-                            <MenuItem key ={5} value={"5"}>5</MenuItem>
-                            <MenuItem key ={6} value={"6"}>6</MenuItem>
-                            <MenuItem key ={7} value={"7"}>7</MenuItem>
-                            <MenuItem key ={8} value={"8"}>8</MenuItem>
-                            <MenuItem key ={9} value={"9"}>9</MenuItem>
-                            <MenuItem key ={10} value={"10"}>+10</MenuItem>
-                          </Select>
-                        </FormControl>
+                      </Stack>
                     </div>
                   </div>
-                </div>
-                <div >
-                    <p className='product-price'>${product.price}</p>
+                  <div>
+                    <p className='product-price'>${formatNumbers.format(product.price.toFixed(2))}</p>
                   </div>
-                <div >
-
+                  <div>
+                      <p className='product-price'>${product.totalAmount ? product.totalAmount : formatNumbers.format(((product.quantity || 1) * product.price).toFixed(2))}</p>
+                    </div>
                 </div>
-               
-              </div>
-              <Divider/>
+                <Divider className='divider'/>
               </>
             ))}
+            <h1 className='subtotal'>{`SUBTOTAL ( ${totalProducts} products ): $${subtotal}`}</h1>
         </Paper>
       </Box>
 
@@ -156,6 +139,9 @@ export const Cart = ({items: {data}}) => {
         <Paper elevation={3} >
           <h1>Summary</h1>
           <Divider/>
+          <p >{`Subtotal (${totalProducts} 
+          products): $${subtotal}`}</p>
+        <ColorButton variant="contained">Checkout</ColorButton>
         </Paper>
       </Box>
     </Wrapper>

@@ -6,7 +6,7 @@ import { Home } from '../pages/Home';
 import {Header} from '../components/Header/Header';
 import { Login } from '../pages/Login';
 import {Wrapper} from './AppRouter.styles';
-import mockData from '../utils/MockData/products.json'
+import cart from '../utils/MockData/cartmock.json'
 
 export const AppRouter = () => {
   return (
@@ -24,7 +24,7 @@ export const AppRouter = () => {
               <Products />
             </Route>
             <Route path='/cart'>
-              <Cart items ={mockData}/>
+              <Cart items ={cart}/>
             </Route>
             <Route path='/login'>
               <Login />
