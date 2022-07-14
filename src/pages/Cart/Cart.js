@@ -47,19 +47,17 @@ export const Cart = ({items: {data}}) => {
     return quantity;
   }
 
-
-
   const handleChange = useCallback((product_id, e) => {
     const productIndex = items.items.findIndex((item) => item.id === product_id);
     const productItems = { ...items };
     productItems.items[productIndex].quantity = Number.parseInt(e.target.value);
     const newQuantity = updateQuantityInProduct(productItems.items)
     setItems({...productItems, totalQuantity: newQuantity })
-  }, [products]);
+  }, [products, items]);
 
   useEffect(() => {
     setItems({ ...items, totalQuantity: updateQuantityInProduct(items.items) });
-  }, [])
+  }, [items])
 
   return (
     <Wrapper>
