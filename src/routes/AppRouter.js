@@ -4,7 +4,7 @@ import { Products } from '../pages/Products/Products';
 import { Cart } from '../pages/Cart/Cart';
 import { Home } from '../pages/Home';
 import {Header} from '../components/Header/Header';
-import { Login } from '../pages/Login';
+import { Login } from '../pages/Login/Login';
 import {Wrapper} from './AppRouter.styles';
 import cart from '../utils/MockData/cartmock.json'
 
