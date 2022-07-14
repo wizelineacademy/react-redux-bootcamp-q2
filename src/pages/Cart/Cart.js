@@ -53,7 +53,7 @@ export const Cart = ({items: {data}}) => {
     productItems.items[productIndex].quantity = Number.parseInt(e.target.value);
     const newQuantity = updateQuantityInProduct(productItems.items)
     setItems({...productItems, totalQuantity: newQuantity })
-  }, [products, items]);
+  }, [items]);
 
   useEffect(() => {
     setItems({ ...items, totalQuantity: updateQuantityInProduct(items.items) });
