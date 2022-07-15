@@ -7,6 +7,7 @@ import {Header} from '../components/Header/Header';
 import { Login } from '../pages/Login/Login';
 import {Wrapper} from './AppRouter.styles';
 import cart from '../utils/MockData/cartmock.json'
+import PrivateRoute from '../components/Auth/PrivateRute';
 
 export const AppRouter = () => {
   return (
@@ -20,12 +21,12 @@ export const AppRouter = () => {
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route path='/products'>
+            <PrivateRoute path='/products' >
               <Products />
-            </Route>
-            <Route path='/cart'>
+            </PrivateRoute>
+            <PrivateRoute path='/cart' >
               <Cart items ={cart}/>
-            </Route>
+            </PrivateRoute>
             <Route path='/login'>
               <Login />
             </Route>

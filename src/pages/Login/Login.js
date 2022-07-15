@@ -49,7 +49,7 @@ export const Login = () => {
   async function handleSubmit (){
     try {
       const response = await loginApi(userName, password);
-      sessionStorage.setItem('user', response);
+      localStorage.setItem("username", userName);
       history.push("/products");
       setError(null);
 
