@@ -1,74 +1,93 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
 import {
-  Column,
+  selectCartProducts,
+  selectMessage,
+  selectOrder,
+} from '../selectors/cart';
+import {
   ColumnHeader,
-  Detail,
-  ImageContainer,
   Row,
   Table,
   TableContainer,
   Title,
 } from '../styles/components/CartTable.styles';
-import { Image } from '../styles/components/Producto.styles';
+import { Main } from '../styles/pages/Home.styles';
+import CartRow from './CartRow';
 import Summary from './Summary';
+import 'react-toastify/dist/ReactToastify.css';
 
-const CartTable = ({ productos }) => {
-  const [quantities, setQuantities] = useState(
-    productos.reduce((acc, producto) => {
-      return {
-        ...acc,
-        [producto.id]: 1,
-      };
-    }, {})
-  );
-  const handleQuantityChange = (index) => (event) => {
-    setQuantities({
-      ...quantities,
-      [productos[index].id]: parseInt(event.target.value),
-    });
-  };
+const CartTable = () => {
+  const productos = useSelector(selectCartProducts);
+  const order = useSelector(selectOrder);
+  const message = useSelector(selectMessage);
+
+  useEffect(() => {
+    if (!order && message) {
+      toast.info(message, {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (order && message) {
+      toast.info(`${message} \n Number: ${order}`, {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  }, [order, message]);
+
   return (
     <>
       <Title>Shopping Cart</Title>
-      <TableContainer>
-        <Table>
-          <thead>
-            <Row>
-              <ColumnHeader>Product details</ColumnHeader>
-              <ColumnHeader>Quantity</ColumnHeader>
-              <ColumnHeader>Price</ColumnHeader>
-              <ColumnHeader>Total</ColumnHeader>
-            </Row>
-          </thead>
-          <tbody>
-            {productos.map(({ id, name, images, price }, index) => {
-              return (
-                <Row key={id}>
-                  <Column style={{ display: 'flex' }}>
-                    <ImageContainer>
-                      <Image src={images[0]} alt={name} />
-                    </ImageContainer>
-                    <Detail>{name}</Detail>
-                  </Column>
-                  <Column>
-                    <input
-                      type={'number'}
-                      onChange={handleQuantityChange(index)}
-                      value={quantities[id]}
-                      min={1}
-                    />
-                  </Column>
-                  <Column style={{ textAlign: 'right' }}>{`$ ${price}`}</Column>
-                  <Column style={{ textAlign: 'right' }}>
-                    {`$ ${price * quantities[id]}`}
-                  </Column>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover={false}
+      />
+      {Object.keys(productos).length > 0 ? (
+        <>
+          <TableContainer>
+            <Table>
+              <thead>
+                <Row>
+                  <ColumnHeader>Product details</ColumnHeader>
+                  <ColumnHeader>Quantity</ColumnHeader>
+                  <ColumnHeader>Price</ColumnHeader>
+                  <ColumnHeader>Total</ColumnHeader>
                 </Row>
-              );
-            })}
-          </tbody>
-        </Table>
-      </TableContainer>
-      <Summary productos={productos} quantities={quantities} />
+              </thead>
+              <tbody>
+                {Object.keys(productos).map((id) => {
+                  return <CartRow key={id} productId={id} />;
+                })}
+              </tbody>
+            </Table>
+          </TableContainer>
+          <Summary />
+        </>
+      ) : (
+        <Main>
+          <h3>Add products to your cart</h3>
+        </Main>
+      )}
     </>
   );
 };

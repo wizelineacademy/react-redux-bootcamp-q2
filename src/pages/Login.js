@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/AuthProvider';
 
 export const Login = () => {
   const auth = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
-  const { from } = location.state || { from: { pathname: '/' } };
+  const from = location.state?.from?.pathname || '/';
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ export const Login = () => {
       user,
       password
     )(() => {
-      history.replace(from);
+      navigate(from, { replace: true });
     });
   };
 

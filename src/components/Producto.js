@@ -1,3 +1,6 @@
+import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slices/cart';
 import {
   Button,
   Category,
@@ -8,8 +11,17 @@ import {
   StyledInfoWrapper,
   StyledProducto,
 } from '../styles/components/Producto.styles';
+import { numberFormat } from '../utils/formats';
 
-export const Producto = ({ producto: { images, name, categories, price } }) => {
+export const Producto = ({
+  producto: { id, images, name, categories, price },
+}) => {
+  const dispatch = useDispatch();
+
+  const handleClik = useCallback(() => {
+    dispatch(addToCart(id));
+  }, [dispatch, id]);
+
   return (
     <StyledProducto>
       <StyledImageWrapper>
@@ -18,8 +30,8 @@ export const Producto = ({ producto: { images, name, categories, price } }) => {
       <StyledInfoWrapper>
         <Name>{name}</Name>
         <Category>{categories[0]}</Category>
-        <Price>$ {price}</Price>
-        <Button>Add to cart</Button>
+        <Price>{numberFormat.format(price)}</Price>
+        <Button onClick={handleClik}>Add to cart</Button>
       </StyledInfoWrapper>
     </StyledProducto>
   );

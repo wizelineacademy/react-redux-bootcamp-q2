@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../components/AuthProvider';
 
 export const Logout = () => {
   const auth = useAuth();
-  const history = useHistory();
+  const navigate = useNavigate();
   useEffect(() => {
     auth.logout(() => {
-      history.push('/');
+      navigate('/');
     });
     // eslint-disable-next-line
   }, []);
