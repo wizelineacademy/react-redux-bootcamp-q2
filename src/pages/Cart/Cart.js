@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Wrapper} from './Cart.styles'
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
@@ -53,14 +53,14 @@ export const Cart = ({items: {data}}) => {
     return quantity;
   }
 
-  const handleChange = useCallback((productId, e) => {
+  const handleChange = (productId, e) => {
     const productQuantity = Number.parseInt(e.target.value)
 
     if (isNaN(productQuantity) || productQuantity < 1) {
       return;
     }
     dispatch(updateProduct({ productId, quantity: productQuantity }));
-  }, [items]);
+  };
 
   const handleRemoveToMyCart = (productId) => {
     dispatch(remove({ productId }));
