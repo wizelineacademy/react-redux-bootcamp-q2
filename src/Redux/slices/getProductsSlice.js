@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { update } from "./myCartSlice";
-import key from "./key"
+//import key from "./key"
 
 const URL = "https://6x8prpit9f.execute-api.us-east-1.amazonaws.com/api";
 
