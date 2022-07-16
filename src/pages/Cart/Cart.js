@@ -68,7 +68,7 @@ export const Cart = ({items: {data}}) => {
 
   useEffect(() => {
     setItems({ ...items, totalQuantity: updateQuantityInProduct(products) });
-  }, [products, items])
+  }, [products, setItems])
 
   return (
     <Wrapper>
