@@ -12,7 +12,7 @@ export const getProducts = createAsyncThunk (
       const response = await fetch(`${URL}/products`, {
         method: "GET",
         headers: {
-          'x-api-key': key
+          'x-api-key': process.env.REACT_APP_API_KEY
         }
       });
 
