@@ -12,10 +12,16 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Logo from '../../Images/wizeStoreLogo.png'
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut, selectMyCurrentUser } from '../../Redux/slices/usersLogin';
+import { useHistory } from "react-router-dom";
 
 export const Header = () => {
-const [isAuthenticated, setIsAutenticated] = useState(false);
-const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const isAuthenticated = !!useSelector(selectMyCurrentUser);
+  const history = useHistory();
+  const [open, setOpen] = useState(false);
+
 
 const handleClickOpen = () => {
   setOpen(true);
@@ -25,9 +31,11 @@ const handleClose = () => {
   setOpen(false);
 };
 
-useEffect( () => {
-  setIsAutenticated (localStorage.getItem('username'));
-}, [isAuthenticated]);
+const handleOnLogOut = () => {      
+  dispatch(logOut());
+  history.push("/");                                         
+  setOpen(false);
+};
 
   return (
     <Wrapper className="topnav" id="myTopnav">
@@ -39,21 +47,18 @@ useEffect( () => {
               <Text> WizeStore</Text>
               </div>
           </Links>
-
-        
-    
         {isAuthenticated && (
           <div className='links'>
             <Links to="/cart">CART</Links>
             <Links to="/products">PRODUCTS</Links>
-            {!isAuthenticated && (
-              <Links to="/login">Login</Links>
-            )}   
             <Button className='button-logout' onClick={handleClickOpen}>
               Log out
             </Button>
           </div>
         )}
+          {!isAuthenticated && (
+            <Links to="/login">Login</Links>
+          )}   
       </FlexContainer>
       <div>
       <Dialog
@@ -73,7 +78,7 @@ useEffect( () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handleOnLogOut} autoFocus>
             Yes, Logout
           </Button>
         </DialogActions>

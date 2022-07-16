@@ -1,9 +1,11 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { selectMyCurrentUser } from '../../Redux/slices/usersLogin';
+import { useSelector } from 'react-redux';
 
 
 export const PrivateRoute = ({ children}) => {
-  const isAuthenticated = localStorage.getItem('username');
+  const isAuthenticated = useSelector(selectMyCurrentUser);
       
   if (isAuthenticated ) {
     return children

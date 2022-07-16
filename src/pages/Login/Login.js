@@ -14,6 +14,9 @@ import loginApi from "../../utils/loginApi";
 import Container from '@mui/material/Container';
 import {Wrapper} from './Login.styles'
 import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../Redux/slices/usersLogin';
+
 
 function Copyright() {
   return (
@@ -40,7 +43,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 
 export const Login = () => {
-
+  const dispatch = useDispatch();
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -48,10 +51,12 @@ export const Login = () => {
 
   async function handleSubmit (){
     try {
-      await loginApi(userName, password);
-      localStorage.setItem("username", userName);
-      history.push("/products");
-      setError(null);
+      const result = await loginApi(userName, password);
+
+      if(result){
+        dispatch(signIn({"userName": userName , "password": password}))
+        history.push("/products");
+      }
 
     } catch (error) {
       return setError(error);
