@@ -6,17 +6,18 @@ export const Wrapper = styled.div`
   padding: 0px 16px;
   background-color: #764AF1;
   overflow: hidden;
-  display: flex;
-  max-height: 65px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  
   font-family: "Roboto","Helvetica","Arial",sans-serif;
   width:100%;
   position:fixed;
   top:0;
   left:20;
   right:0;
+
+
+  .button-logout{
+    color: #ffff;
+  }
   
   @media only screen and (max-width: 600px) {
     flex-direction: column;
@@ -30,12 +31,14 @@ export const Wrapper = styled.div`
     grid-template-columns: 50px auto;
     justify-content:center;
     align-items: center;
+    margin-left: 2rem;
 
   }
 
   .wize-store-logo{
     width: 50px;
     justify-self: end;
+    
   }
 `;
 
@@ -59,4 +62,11 @@ export const Text = styled.p`
 
 export const FlexContainer = styled.div`
   display: flex;
+  flex-direction: row;
+  gap:2rem;
+
+  .links{
+    display: flex;
+    flex-direction: row;
+  }
 `;

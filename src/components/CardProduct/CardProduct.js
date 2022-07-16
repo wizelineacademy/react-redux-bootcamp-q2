@@ -1,31 +1,43 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { Wrapper} from './CardProduct.styles'
+import { add } from '../../Redux/slices/myCartSlice';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-export const CardProduct = ({items: {data}}) => {
-const {products} = data;
+
+
+export const CardProduct = (props) => {
+  const {items} = props;
+  const dispatch = useDispatch();
+  const formatNumbers = new Intl.NumberFormat('en-US');
+
+
+  const handleAddToMyCart = (product) => {
+    dispatch(add(product));
+  };
 
   return (
     <Wrapper>
-      {products.items.map(product => (
-        <div className='card-products'key={product.id}>
+      {items.map(product => (
+        <div className='card-products' key={Math.random()}>
           <div className='container-image-product'>
             <img className='principal-image-product' src={product.images[0]} alt={product.id}/>
           </div>
           <div className='product-name'>
-            <p>{product.name}</p>
+            <p>{product.name.toLowerCase()}</p>
           </div>
           <div className='product-category'>
             <p>{product.categories}</p>
           </div>
           <div className='product-price'>
-            <p> {`$ ${product.price}`}</p>
+            <p> {`$ ${formatNumbers.format(product.price)}`}</p>
           </div>
-          <div className='container-button-add-to-cart'>
-            <button className='button-add-to-cart' type='submit'>+ Add to Cart</button>
+          <div onClick= {()=> handleAddToMyCart(product)} className='button-add-to-cart'  >
+            <p>Add to Cart</p>
+            <AddShoppingCartIcon/>
           </div>
         </div>
       ))}
-
     </Wrapper>
   )
 };

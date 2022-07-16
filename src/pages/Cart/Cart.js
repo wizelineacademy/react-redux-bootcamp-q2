@@ -12,6 +12,10 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
 import { Input } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { remove, updateProduct } from '../../Redux/slices/myCartSlice';
+import { useSelector } from 'react-redux';
+import { selectMyProducts } from '../../Redux/slices/myCartSlice';
 
 const ColorButton = styled(Button)(({ theme }) => ({
   textAlign: 'center',
@@ -24,14 +28,16 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 export const Cart = ({items: {data}}) => {
-  const {products} = data;
+  const products = useSelector(selectMyProducts);
   const [items, setItems] = React.useState(products);
   const totalProducts = items.totalQuantity || 0;
   const formatNumbers = new Intl.NumberFormat('en-US');
+  const dispatch = useDispatch();
+
 
   const calcTotal = () => {
     let sum = 0;
-    for (let item of items.items) {
+    for (let item of products) {
       sum += (item.quantity || 1) * item.price;
     }
     return sum;
@@ -47,17 +53,22 @@ export const Cart = ({items: {data}}) => {
     return quantity;
   }
 
-  const handleChange = useCallback((product_id, e) => {
-    const productIndex = items.items.findIndex((item) => item.id === product_id);
-    const productItems = { ...items };
-    productItems.items[productIndex].quantity = Number.parseInt(e.target.value);
-    const newQuantity = updateQuantityInProduct(productItems.items)
-    setItems({...productItems, totalQuantity: newQuantity })
+  const handleChange = useCallback((productId, e) => {
+    const productQuantity = Number.parseInt(e.target.value)
+
+    if (isNaN(productQuantity) || productQuantity < 1) {
+      return;
+    }
+    dispatch(updateProduct({ productId, quantity: productQuantity }));
   }, [items]);
 
+  const handleRemoveToMyCart = (productId) => {
+    dispatch(remove({ productId }));
+  };
+
   useEffect(() => {
-    setItems({ ...items, totalQuantity: updateQuantityInProduct(items.items) });
-  }, [])
+    setItems({ ...items, totalQuantity: updateQuantityInProduct(products) });
+  }, [products])
 
   return (
     <Wrapper>
@@ -79,9 +90,9 @@ export const Cart = ({items: {data}}) => {
             <p>Total</p>
           </div>
           <Divider/>
-            {products.items.map(product => (
+            {products.map(product => (
               <>
-                <div className='card-product'key={`${product.id},${product.name} `}>
+                <div className='card-product'key={Math.random()}>
                   <div className='container-image-product'>
                     <img className='principal-image-product' width={100} height={100} src={product.images[0]} alt={product.id}/>
                   </div>
@@ -100,7 +111,7 @@ export const Cart = ({items: {data}}) => {
                           <Input className='input' color='primary' defaultValue={product.quantity} onChange={(e) => handleChange(product.id, e)}> </Input>
                         </FormControl>
                     
-                        <IconButton className='removeBotton' color="error" aria-label="delete" size="small">
+                        <IconButton onClick={() => handleRemoveToMyCart(product.id)} className='removeBotton' color="error" aria-label="delete" size="small">
                           <DeleteIcon />   
                           <p>Remove Item</p>
                         </IconButton>

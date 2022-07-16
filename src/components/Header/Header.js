@@ -11,11 +11,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
 import Logo from '../../Images/wizeStoreLogo.png'
-
-
-
 
 export const Header = () => {
 const [isAuthenticated, setIsAutenticated] = useState(false);
@@ -29,36 +25,37 @@ const handleClose = () => {
   setOpen(false);
 };
 
-
 useEffect( () => {
   setIsAutenticated (localStorage.getItem('username'));
 }, [isAuthenticated]);
 
   return (
     <Wrapper className="topnav" id="myTopnav">
-      <Links to="/">
-        <div className='container-logo'>
-          <img src={Logo} alt='logo' className='wize-store-logo'/>
-          <Text> WizeStore</Text>
-        </div>
-      </Links>
       <FlexContainer>
+        <div>
+          <Links to="/">
+            <div className='container-logo'>
+              <img src={Logo} alt='logo' className='wize-store-logo'/>
+              <Text> WizeStore</Text>
+            </div>
+          </Links>
+        </div>
+        
+    
         {isAuthenticated && (
-          <>
-            <Links to="/cart">Cart</Links>
-            <Links to="/products">Products</Links>
-            <Links onClick={handleClickOpen}>
+          <div className='links'>
+            <Links to="/cart">CART</Links>
+            <Links to="/products">PRODUCTS</Links>
+            {!isAuthenticated && (
+              <Links to="/login">Login</Links>
+            )}   
+            <Button className='button-logout' onClick={handleClickOpen}>
               Log out
-            </Links>
-          </>
+            </Button>
+          </div>
         )}
-         {!isAuthenticated && (
-            <Links to="/login">Login</Links>
-         )}   
       </FlexContainer>
-
       <div>
-
       <Dialog
         open={open}
         onClose={handleClose}
