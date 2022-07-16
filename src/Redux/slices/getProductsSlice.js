@@ -1,9 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { update } from "./myCartSlice";
+import key from "./key"
 
 const URL = "https://6x8prpit9f.execute-api.us-east-1.amazonaws.com/api";
-const apiKey = process.env.X_API_KEY
-
 
 export const getProducts = createAsyncThunk (
   "products/getProducts",
@@ -13,7 +12,7 @@ export const getProducts = createAsyncThunk (
       const response = await fetch(`${URL}/products`, {
         method: "GET",
         headers: {
-          'x-api-key': apiKey
+          'x-api-key': key
         }
       });
 

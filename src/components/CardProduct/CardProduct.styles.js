@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   .add-to-shopping-card{
     color:white;
   }
-
+  
   .product-name{
     text-align:center;
     justify-self:center;
@@ -48,18 +48,18 @@ export const Wrapper = styled.div`
 
   .card-products{
     display:grid;
-    grid-template-rows: 2.5fr 1fr repeat(3, .6fr);
+    grid-auto-rows: auto;
     max-height: 100%;
     max-width: 350px;
     justify-content: center;
     text-align:center;
     background-color: white;
 
-    p{
-      margin:0;
-      padding:0;
-    }
-
+      p{
+        margin:0;
+        padding:0;
+      }
+      
     .container-image-product{
       max-width: 100%;
       background-color: white;
@@ -68,7 +68,6 @@ export const Wrapper = styled.div`
       text-align:center;
       align-items:center;
     }
-
 
     .button-add-to-cart{
       display:flex;
@@ -85,7 +84,6 @@ export const Wrapper = styled.div`
     }
   
   }
-
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     margin-top: 180px;

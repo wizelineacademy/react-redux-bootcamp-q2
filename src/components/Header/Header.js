@@ -21,7 +21,7 @@ const handleClickOpen = () => {
   setOpen(true);
 };
 
-const handleClose = () => {
+const handleClose = () => {                                                     
   setOpen(false);
 };
 
@@ -32,14 +32,14 @@ useEffect( () => {
   return (
     <Wrapper className="topnav" id="myTopnav">
       <FlexContainer>
-        <div>
+     
           <Links to="/">
-            <div className='container-logo'>
+          <div className='container-logo'>
               <img src={Logo} alt='logo' className='wize-store-logo'/>
               <Text> WizeStore</Text>
-            </div>
+              </div>
           </Links>
-        </div>
+
         
     
         {isAuthenticated && (
