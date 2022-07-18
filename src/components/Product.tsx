@@ -15,11 +15,22 @@ import {
 } from './../styles/components/Products.styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const Product = ({
-  item: { id, images, name, categories, price }
-}: {
+import { addItemOnStorage } from './../utils/sessionStorage';
+import { useCallback } from 'react';
+
+interface I_Product {
   item: I_Item;
-}) => {
+  toggleMessage: () => void;
+}
+
+const Product = ({ item, toggleMessage }: I_Product) => {
+  const { images, name, categories, price } = item;
+
+  const addItem = useCallback(() => {
+    addItemOnStorage(item);
+    toggleMessage();
+  }, [item, toggleMessage]);
+
   return (
     <Card>
       <CardMedia>
@@ -42,7 +53,11 @@ const Product = ({
         )}
       </CardContent>
       <RowContent>
-        <Button startIcon={<ShoppingCartIcon />} variant='contained'>
+        <Button
+          onClick={() => addItem()}
+          startIcon={<ShoppingCartIcon />}
+          variant='contained'
+        >
           Add to cart
         </Button>
       </RowContent>

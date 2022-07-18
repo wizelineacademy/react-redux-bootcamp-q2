@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Products from './../Product';
+import userEvent from '@testing-library/user-event';
 
-const productMock = {
+export const productMock = {
   id: 1,
   name: '85" QN95B Samsung Neo QLED 4K Smart TV (2022)',
   price: 5999.99,
@@ -16,27 +17,30 @@ const productMock = {
   categories: ['Television & video']
 };
 
-const productRender = () => {
-  render(<Products item={productMock} />);
+const productRender = (toggleMessage: any) => {
+  render(<Products item={productMock} toggleMessage={toggleMessage} />);
 };
 
 describe('Products', () => {
   it('should show the img', () => {
-    productRender();
+    const fnMock = jest.fn();
+    productRender(fnMock);
 
     const imgEl = screen.getByRole('img');
     expect(imgEl).toBeInTheDocument();
   });
 
   it('should show the name', () => {
-    productRender();
+    const fnMock = jest.fn();
+    productRender(fnMock);
 
     const nameEl = screen.getByRole('heading', { level: 1 });
     expect(nameEl).toBeInTheDocument();
   });
 
   it('should show first category', () => {
-    productRender();
+    const fnMock = jest.fn();
+    productRender(fnMock);
 
     const categoryEl = screen.getByRole('heading', { level: 6 });
     expect(categoryEl).toBeInTheDocument();
@@ -44,7 +48,8 @@ describe('Products', () => {
   });
 
   it('should show the price', () => {
-    productRender();
+    const fnMock = jest.fn();
+    productRender(fnMock);
 
     const priceEl = screen.getByText(productMock.price, {
       exact: false,
@@ -53,12 +58,17 @@ describe('Products', () => {
     expect(priceEl).toBeInTheDocument();
   });
 
-  it('should show have "add to the cart" button', () => {
-    productRender();
+  it('should show have "add to the cart" button & can be clicked', () => {
+    const fnMock = jest.fn();
+    productRender(fnMock);
 
     const buttonEl = screen.getByRole('button');
     expect(buttonEl).toBeInTheDocument();
 
     expect(buttonEl.textContent).toMatch(/add to cart/i);
+
+    // User click
+    userEvent.click(buttonEl);
+    expect(fnMock).toHaveBeenCalledTimes(1);
   });
 });

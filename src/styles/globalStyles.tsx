@@ -4,7 +4,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: black;
+    background: #aab2b9;
+    color: white;
   }
 `;
 
