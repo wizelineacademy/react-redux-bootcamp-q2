@@ -15,8 +15,10 @@ import {
 } from './../styles/components/Products.styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-import { addItemOnStorage } from './../utils/sessionStorage';
 import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { add } from '../redux/slices/Cart';
+import { selectProductsLoading } from '../redux/slices/Products';
 
 interface I_Product {
   item: I_Item;
@@ -24,12 +26,17 @@ interface I_Product {
 }
 
 const Product = ({ item, toggleMessage }: I_Product) => {
+  const dispatch = useDispatch();
+
   const { images, name, categories, price } = item;
 
-  const addItem = useCallback(() => {
-    addItemOnStorage(item);
-    toggleMessage();
-  }, [item, toggleMessage]);
+  const addItem = useCallback(
+    (item: I_Item) => {
+      dispatch(add(item));
+      toggleMessage();
+    },
+    [dispatch, toggleMessage]
+  );
 
   return (
     <Card>
@@ -54,7 +61,7 @@ const Product = ({ item, toggleMessage }: I_Product) => {
       </CardContent>
       <RowContent>
         <Button
-          onClick={() => addItem()}
+          onClick={() => addItem(item)}
           startIcon={<ShoppingCartIcon />}
           variant='contained'
         >

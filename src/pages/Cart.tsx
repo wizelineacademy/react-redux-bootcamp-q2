@@ -18,13 +18,9 @@ import {
 } from '@mui/material';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-import {
-  getStorage,
-  I_Storage,
-  addItemOnStorage,
-  removeItemOnStorage
-} from '../utils/sessionStorage';
 import { Link as RouterLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { add, I_Storage, remove, selectCart } from '../redux/slices/Cart';
 
 export const totalPriceByProduct: (
   price: number,
@@ -42,12 +38,16 @@ export const totalPrice: (items: I_Storage[]) => string = items =>
   ).toFixed(2);
 
 export const Cart = () => {
-  const [items, setItems] = useState<I_Storage[]>([]);
-  const [refresh, setRefresh] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const items: I_Storage[] | [] = useSelector(selectCart);
 
-  useEffect(() => {
-    setItems(getStorage());
-  }, [refresh]);
+  const handleAdd: (item: I_Storage) => void = item => {
+    dispatch(add(item));
+  };
+
+  const handleRemove: (item: I_Storage) => void = item => {
+    dispatch(remove(item));
+  };
 
   return (
     <>
@@ -97,8 +97,7 @@ export const Cart = () => {
                             color='error'
                             aria-label='remove'
                             onClick={() => {
-                              removeItemOnStorage(item);
-                              setRefresh(!refresh);
+                              handleRemove(item);
                             }}
                           >
                             <RemoveCircleIcon />
@@ -109,8 +108,7 @@ export const Cart = () => {
                             color='success'
                             aria-label='add'
                             onClick={() => {
-                              addItemOnStorage(item);
-                              setRefresh(!refresh);
+                              handleAdd(item);
                             }}
                           >
                             <AddCircleIcon />
@@ -169,3 +167,5 @@ export const Cart = () => {
     </>
   );
 };
+
+export default Cart;

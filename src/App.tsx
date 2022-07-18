@@ -1,13 +1,17 @@
 import GlobalStyle from './styles/globalStyles';
 import { AppRouter } from './routes/AppRouter';
 import ThemeProvider, { theme } from './styles/utils/theme';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <AppRouter />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <AppRouter />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
