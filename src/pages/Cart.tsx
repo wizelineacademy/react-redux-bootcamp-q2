@@ -22,7 +22,7 @@ import {
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addOne,
@@ -31,7 +31,8 @@ import {
   removeAll,
   selectCart,
   selectOrder,
-  postOrder
+  postOrder,
+  reset
 } from '../redux/slices/Cart';
 import { I_Item } from './types/Products';
 import { selectUser } from '../redux/slices/User';
@@ -59,6 +60,7 @@ export const Cart = () => {
   const items: I_Storage[] | [] = useSelector(selectCart);
   const user = useSelector(selectUser);
   const order = useSelector(selectOrder);
+  const history = useHistory();
 
   const handleAdd = useCallback(
     (item: I_Item) => {
@@ -83,12 +85,15 @@ export const Cart = () => {
 
   const handleMakeOrder = useCallback(
     async (items: I_Item[]) => {
+      if (!user) return history.push('/login');
       await dispatch(postOrder(items));
     },
     [dispatch]
   );
 
-  console.log(order);
+  const handleNewOrder = useCallback(async () => {
+    dispatch(reset());
+  }, [dispatch]);
 
   if (order?.details || order.loading) {
     if (order.loading) {
@@ -100,7 +105,18 @@ export const Cart = () => {
     }
     if (order?.details) {
       return (
-        <Alert severity='success'>
+        <Alert
+          severity='success'
+          action={
+            <Button
+              color='inherit'
+              size='small'
+              onClick={() => handleNewOrder()}
+            >
+              START NEW ORDER
+            </Button>
+          }
+        >
           <AlertTitle>{order?.details?.message}</AlertTitle>
           Number: {order?.details?.order}
         </Alert>

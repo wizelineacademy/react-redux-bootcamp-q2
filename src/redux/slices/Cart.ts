@@ -81,6 +81,11 @@ export const cartSlice = createSlice({
     removeAll: (state, action) => {
       const { payload } = action;
       state.data = state.data.filter(item => item.id !== payload.id);
+    },
+    reset: state => {
+      state.order = {
+        loading: false
+      };
     }
   },
   extraReducers: builder => {
@@ -90,7 +95,6 @@ export const cartSlice = createSlice({
         delete state.order.error;
       })
       .addCase(postOrder.fulfilled, (state, { payload }: { payload: any }) => {
-        debugger;
         state.order.loading = false;
         state.order.details = payload;
         state.data = [];
@@ -106,6 +110,6 @@ export const cartSlice = createSlice({
 export const selectCart = (state: any) => state.cart.data;
 export const selectOrder = (state: any) => state.cart.order;
 
-export const { addOne, removeOne, removeAll } = cartSlice.actions;
+export const { addOne, removeOne, reset, removeAll } = cartSlice.actions;
 
 export default cartSlice.reducer;
