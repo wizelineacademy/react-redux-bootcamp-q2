@@ -85,7 +85,7 @@ export const Cart = () => {
 
   const handleMakeOrder = useCallback(
     async (items: I_Item[]) => {
-      if (!user) return history.push('/login');
+      if (!user.data) return history.push('/login');
       await dispatch(postOrder(items));
     },
     [dispatch]
