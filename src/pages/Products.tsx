@@ -11,11 +11,10 @@ import {
   selectAllProducts,
   selectProductsLoading
 } from '../redux/slices/Products';
+import { AppDispatch } from '../redux/store';
 
 export const Products = () => {
-  // const [products, setProducts] = useState<I_Item[]>([]);
-  // const [loader, setLoader] = useState<boolean>(true);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const toggleMessage = useCallback(async () => {
@@ -26,7 +25,6 @@ export const Products = () => {
   const products = useSelector(selectAllProducts);
 
   useEffect(() => {
-    // @ts-ignore: Unreachable code error
     dispatch(getProducts()).unwrap();
   }, [dispatch]);
 

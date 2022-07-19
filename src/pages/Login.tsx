@@ -11,7 +11,9 @@ import {
 import { useForm } from 'react-hook-form';
 import { AccountCircle, LockRounded } from '@mui/icons-material';
 import { Paper } from './../styles/pages/Login.styles';
-import loginApi from './../utils/loginApi';
+import { getUser, selectUser } from './../redux/slices/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from '../redux/store';
 
 interface I_Form {
   Username: string;
@@ -19,7 +21,9 @@ interface I_Form {
 }
 
 export const Login = () => {
-  const [userLog, setUserLog] = useState<boolean>(false);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const user = useSelector(selectUser);
 
   const {
     register,
@@ -27,12 +31,12 @@ export const Login = () => {
     formState: { errors }
   } = useForm<I_Form>();
   const onSubmit = async (data: I_Form) => {
-    try {
-      await loginApi(data.Username, data.Password);
-      setUserLog(!userLog);
-    } catch (error) {
-      setUserLog(false);
-    }
+    await dispatch(
+      getUser({
+        username: data.Username,
+        password: data.Password
+      })
+    );
   };
 
   return (
@@ -42,13 +46,22 @@ export const Login = () => {
       <Grid container justifyContent='center'>
         <Grid item xs={8} md={6}>
           <Paper variant='elevation'>
-            {!userLog ? (
+            {!user?.data ? (
               <>
                 <Typography component='h1' textAlign='center'>
                   Welcome to the WizeStore
                 </Typography>
                 <br />
                 <br />
+                {user?.error && (
+                  <Snackbar
+                    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                    open={true}
+                    autoHideDuration={6000}
+                  >
+                    <Alert severity='error'>{user?.error}</Alert>
+                  </Snackbar>
+                )}
                 {Object.keys(errors).length > 0 && (
                   <Snackbar
                     anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

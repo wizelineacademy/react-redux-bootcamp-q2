@@ -15,8 +15,11 @@ import {
 } from './../styles/components/Products.styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addOne } from '../redux/slices/Cart';
+import { selectUser } from '../redux/slices/User';
+import { useHistory } from 'react-router-dom';
+import { AppDispatch } from '../redux/store';
 
 interface I_Product {
   item: I_Item;
@@ -24,12 +27,19 @@ interface I_Product {
 }
 
 const Product = ({ item, toggleMessage }: I_Product) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const history = useHistory();
 
   const { images, name, categories, price } = item;
 
+  const user = useSelector(selectUser);
+
   const addItem = useCallback(
     (item: I_Item) => {
+      if (!user?.data) {
+        history.push('/login');
+      }
       dispatch(addOne(item));
       toggleMessage();
     },

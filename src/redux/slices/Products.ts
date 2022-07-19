@@ -9,7 +9,6 @@ interface I_ProductState {
   error?: any;
 }
 
-// First, create the thunk
 export const getProducts = createAsyncThunk(
   'products/getProducts',
   async (_, { rejectWithValue }) => {

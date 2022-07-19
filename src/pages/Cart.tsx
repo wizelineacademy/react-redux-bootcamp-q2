@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import Lottie from 'lottie-react';
 import {
   Grid,
   Link,
@@ -14,7 +15,9 @@ import {
   Divider,
   Box,
   Button,
-  Chip
+  Chip,
+  Alert,
+  AlertTitle
 } from '@mui/material';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -26,9 +29,14 @@ import {
   I_Storage,
   removeOne,
   removeAll,
-  selectCart
+  selectCart,
+  selectOrder,
+  postOrder
 } from '../redux/slices/Cart';
 import { I_Item } from './types/Products';
+import { selectUser } from '../redux/slices/User';
+import { AppDispatch } from '../redux/store';
+import * as animation from './../lotties/order-making.json';
 
 export const totalPriceByProduct: (
   price: number,
@@ -46,8 +54,11 @@ export const totalPrice: (items: I_Storage[]) => string = items =>
   ).toFixed(2);
 
 export const Cart = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   const items: I_Storage[] | [] = useSelector(selectCart);
+  const user = useSelector(selectUser);
+  const order = useSelector(selectOrder);
 
   const handleAdd = useCallback(
     (item: I_Item) => {
@@ -70,19 +81,51 @@ export const Cart = () => {
     [dispatch]
   );
 
+  const handleMakeOrder = useCallback(
+    async (items: I_Item[]) => {
+      await dispatch(postOrder(items));
+    },
+    [dispatch]
+  );
+
+  console.log(order);
+
+  if (order?.details || order.loading) {
+    if (order.loading) {
+      return (
+        <div role='progressbar'>
+          <Lottie animationData={animation} loop={true} />
+        </div>
+      );
+    }
+    if (order?.details) {
+      return (
+        <Alert severity='success'>
+          <AlertTitle>{order?.details?.message}</AlertTitle>
+          Number: {order?.details?.order}
+        </Alert>
+      );
+    }
+  }
+
   return (
     <>
       <br />
       <br />
-
       <Grid container>
-        {items.length === 0 ? (
+        {items.length === 0 || !user ? (
           <Grid item xs={12}>
             <Typography align='center' margin='20px'>
-              There are no products on the cart...
-              <Link component={RouterLink} underline='none' to='/products'>
+              {!user
+                ? 'No user is found...'
+                : 'There are no products on the cart...'}
+              <Link
+                component={RouterLink}
+                underline='none'
+                to={!user ? '/login' : '/products'}
+              >
                 <Typography component='span' color='yellow'>
-                  check the products
+                  {!user ? 'please login' : 'check the products'}
                 </Typography>
               </Link>
             </Typography>
@@ -181,7 +224,11 @@ export const Cart = () => {
                   </div>
                 </Divider>
                 <br />
-                <Button fullWidth variant='contained'>
+                <Button
+                  fullWidth
+                  variant='contained'
+                  onClick={() => handleMakeOrder(items)}
+                >
                   CHECKOUT
                 </Button>
               </Box>
