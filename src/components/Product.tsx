@@ -14,11 +14,9 @@ import {
   PriceWrapper
 } from './../styles/components/Products.styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { add } from '../redux/slices/Cart';
-import { selectProductsLoading } from '../redux/slices/Products';
+import { useDispatch } from 'react-redux';
+import { addOne } from '../redux/slices/Cart';
 
 interface I_Product {
   item: I_Item;
@@ -32,7 +30,7 @@ const Product = ({ item, toggleMessage }: I_Product) => {
 
   const addItem = useCallback(
     (item: I_Item) => {
-      dispatch(add(item));
+      dispatch(addOne(item));
       toggleMessage();
     },
     [dispatch, toggleMessage]

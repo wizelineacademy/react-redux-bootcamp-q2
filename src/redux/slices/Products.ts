@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { I_Data, I_Item } from '../../pages/types/Products';
+import { I_Data } from '../../pages/types/Products';
 import { axiosClient } from '../../api/config';
 
-interface ProductState {
+interface I_ProductState {
   data?: I_Data;
   loading: boolean;
   error?: any;
@@ -27,7 +27,7 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-const initialState: ProductState = {
+const initialState: I_ProductState = {
   loading: false
 };
 

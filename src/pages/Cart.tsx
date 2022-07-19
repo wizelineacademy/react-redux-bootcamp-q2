@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import {
   Grid,
   Link,
@@ -18,9 +18,17 @@ import {
 } from '@mui/material';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link as RouterLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, I_Storage, remove, selectCart } from '../redux/slices/Cart';
+import {
+  addOne,
+  I_Storage,
+  removeOne,
+  removeAll,
+  selectCart
+} from '../redux/slices/Cart';
+import { I_Item } from './types/Products';
 
 export const totalPriceByProduct: (
   price: number,
@@ -41,13 +49,26 @@ export const Cart = () => {
   const dispatch = useDispatch();
   const items: I_Storage[] | [] = useSelector(selectCart);
 
-  const handleAdd: (item: I_Storage) => void = item => {
-    dispatch(add(item));
-  };
+  const handleAdd = useCallback(
+    (item: I_Item) => {
+      dispatch(addOne(item));
+    },
+    [dispatch]
+  );
 
-  const handleRemove: (item: I_Storage) => void = item => {
-    dispatch(remove(item));
-  };
+  const handleRemove = useCallback(
+    (item: I_Item) => {
+      dispatch(removeOne(item));
+    },
+    [dispatch]
+  );
+
+  const handleRemoveAll = useCallback(
+    (item: I_Item) => {
+      dispatch(removeAll(item));
+    },
+    [dispatch]
+  );
 
   return (
     <>
@@ -90,6 +111,12 @@ export const Cart = () => {
                             alt={item.name}
                             style={{ maxWidth: '100px' }}
                           />
+                          <IconButton
+                            color='error'
+                            onClick={() => handleRemoveAll(item)}
+                          >
+                            <DeleteForeverIcon />
+                          </IconButton>
                         </TableCell>
                         <TableCell align='right'>{item.name}</TableCell>
                         <TableCell align='center' padding='none'>

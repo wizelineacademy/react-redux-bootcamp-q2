@@ -1,16 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { I_Item } from '../../pages/types/Products';
-import { productMock } from '../../components/__test__/Product.test';
 
 export interface I_Storage extends I_Item {
   quantity: number;
 }
 
-interface CartState {
+interface I_CartState {
   data: I_Storage[];
 }
 
-const initialState: CartState = {
+const initialState: I_CartState = {
   data: []
 };
 
@@ -18,7 +17,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    add: (state, action) => {
+    addOne: (state, action) => {
       const { payload } = action;
       let hasItem = false;
       state.data.filter(item => {
@@ -33,7 +32,7 @@ export const cartSlice = createSlice({
         state.data.push({ ...payload, quantity: 1 });
       }
     },
-    remove: (state, action) => {
+    removeOne: (state, action) => {
       const { payload } = action;
       state.data = state.data.filter(item => {
         if (item.id === payload.id) {
@@ -45,12 +44,16 @@ export const cartSlice = createSlice({
         }
         return true;
       });
+    },
+    removeAll: (state, action) => {
+      const { payload } = action;
+      state.data = state.data.filter(item => item.id !== payload.id);
     }
   }
 });
 
 export const selectCart = (state: any) => state.cart.data;
 
-export const { add, remove } = cartSlice.actions;
+export const { addOne, removeOne, removeAll } = cartSlice.actions;
 
 export default cartSlice.reducer;
